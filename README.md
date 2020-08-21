@@ -1,1 +1,1 @@
-# https-github.com-guid-empty-otus-cocktail-app-lessons
+# otus-cocktail-app-lessons
