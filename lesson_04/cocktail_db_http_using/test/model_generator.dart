@@ -3,13 +3,9 @@ import 'dart:convert' as convert;
 import 'package:cocktaildbhttpusing/models.dart';
 import 'package:cocktaildbhttpusing/src/model/cocktail_category.dart';
 import 'package:cocktaildbhttpusing/src/model/cocktail_dto.dart';
-import 'package:cocktaildbhttpusing/src/repository/cocktail_repository.dart';
-import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 
-void main() {
-  CocktailRepository repository;
-
+void main() async {
   Map<String, String> _getIngredients(CocktailDTO dto) {
     return <String, String>{
       if (dto.strIngredient1 != null) dto.strIngredient1: dto.strMeasure1,
@@ -30,51 +26,41 @@ void main() {
     };
   }
 
-  setUp(() {
-    repository = CocktailRepository();
-  });
+  var client = http.Client();
+  try {
+    // Await the http get response, then decode the json-formatted responce.
+    const String url = 'https://the-cocktail-db.p.rapidapi.com/popular.php';
+    var response = await http.get(
+      url,
+      headers: {
+        'x-rapidapi-key': 'e5b7f97a78msh3b1ba27c40d8ccdp105034jsn34e2da32d50b',
+      },
+    );
+    if (response.statusCode == 200) {
+      final jsonResponse = convert.jsonDecode(response.body);
+      var drinks = jsonResponse['drinks'] as Iterable<dynamic>;
 
-  group('Coctail repository', () {
-    test('fetch method should return all available cocktails', () {
-      final actualResult = repository.fetchPopularCocktails();
-      expect(actualResult, isNotEmpty);
-    });
+      final result = drinks.cast<Map<String, dynamic>>().map((json) => CocktailDTO.fromJson(json));
 
-    test('fetch method should return all available cocktails', () async {
-      var client = http.Client();
-      try {
-        // Await the http get response, then decode the json-formatted responce.
-        const String url = 'https://the-cocktail-db.p.rapidapi.com/popular.php';
-        var response = await http.get(
-          url,
-          headers: {
-            'x-rapidapi-key': 'e5b7f97a78msh3b1ba27c40d8ccdp105034jsn34e2da32d50b',
-          },
-        );
-        if (response.statusCode == 200) {
-          final jsonResponse = convert.jsonDecode(response.body);
-          var drinks = jsonResponse['drinks'] as Iterable<dynamic>;
+      var popularCocktails = '';
+      for (final dto in result) {
+        final glass = GlassType.parse(dto.strGlass);
+        final cocktailType = CocktailType.parse(dto.strAlcoholic);
+        final category = CocktailCategory.parse(dto.strCategory);
 
-          final result = drinks.cast<Map<String, dynamic>>().map((json) => CocktailDTO.fromJson(json));
+        var ingredients = '';
 
-          var ctor = '';
-          for (final dto in result) {
-            final glass = GlassType.parse(dto.strGlass);
-            final cocktailType = CocktailType.parse(dto.strAlcoholic);
-            final category = CocktailCategory.parse(dto.strCategory);
+        _getIngredients(dto).forEach((key, value) => ingredients += 'IngredientDefinition(\'$key\', \'$value\'),\r\n');
 
-            var ingredients = '';
-
-            _getIngredients(dto)
-                .forEach((key, value) => ingredients += 'IngredientDefinition(\'$key\', \'$value\'),\r\n');
-
-            ctor += '''
+        popularCocktails += '''
                   Cocktail(
                     id: '${dto.idDrink}',
                     category: CocktailCategory.${category.name},
                     cocktailType: CocktailType.${cocktailType.name},
                     glassType: GlassType.${glass.name},
-                    instruction: '${dto.strInstructions}',
+                    instruction: \'\'\'
+                      ${dto.strInstructions}
+                    \'\'\',
                     isFavourite: true,
                     name: '${dto.strDrink}',
                     ingredients: [
@@ -83,15 +69,13 @@ void main() {
                     drinkThumbUrl: '${dto.strDrinkThumb}',
                   ),
                 ''';
-          }
-
-          print(ctor);
-        } else {
-          print("Request failed with status: ${response.statusCode}.");
-        }
-      } finally {
-        client.close();
       }
-    });
-  });
+
+      print(popularCocktails);
+    } else {
+      print("Request failed with status: ${response.statusCode}.");
+    }
+  } finally {
+    client.close();
+  }
 }

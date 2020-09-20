@@ -1,7 +1,7 @@
-import 'package:cocktailappmodels/models.dart';
-import 'package:cocktailappmodels/src/model/cocktail_type.dart';
-import 'package:cocktailappmodels/src/model/glass_type.dart';
-import 'package:cocktailappmodels/src/model/ingredient_definition.dart';
+import 'package:cocktaildbhttpusing/models.dart';
+import 'package:cocktaildbhttpusing/src/model/cocktail_type.dart';
+import 'package:cocktaildbhttpusing/src/model/glass_type.dart';
+import 'package:cocktaildbhttpusing/src/model/ingredient_definition.dart';
 import 'package:flutter/foundation.dart';
 
 ///
