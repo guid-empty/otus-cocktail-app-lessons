@@ -12,9 +12,8 @@ class CocktailRepository {
         category: CocktailCategory.cocktail,
         cocktailType: CocktailType.alcoholic,
         glassType: GlassType.highballGlass,
-        instruction: '''
-                      Muddle mint leaves with sugar and lime juice. Add a splash of soda water and fill the glass with cracked ice. Pour the rum and top with soda water. Garnish and serve with straw.
-                    ''',
+        instruction:
+            '''Muddle mint leaves with sugar and lime juice. Add a splash of soda water and fill the glass with cracked ice. Pour the rum and top with soda water. Garnish and serve with straw.''',
         isFavourite: true,
         name: 'Mojito',
         ingredients: [
@@ -31,12 +30,10 @@ class CocktailRepository {
         category: CocktailCategory.cocktail,
         cocktailType: CocktailType.alcoholic,
         glassType: GlassType.oldFashionedGlass,
-        instruction: '''
-                      Place sugar cube in old fashioned glass and saturate with bitters, add a dash of plain water. Muddle until dissolved.
+        instruction:
+            '''Place sugar cube in old fashioned glass and saturate with bitters, add a dash of plain water. Muddle until dissolved.
 Fill the glass with ice cubes and add whiskey.
-
-Garnish with orange twist, and a cocktail cherry.
-                    ''',
+Garnish with orange twist, and a cocktail cherry.''',
         isFavourite: true,
         name: 'Old Fashioned',
         ingredients: [
@@ -52,9 +49,8 @@ Garnish with orange twist, and a cocktail cherry.
         category: CocktailCategory.ordinaryDrink,
         cocktailType: CocktailType.alcoholic,
         glassType: GlassType.highballGlass,
-        instruction: '''
-                      Combine all ingredients (except cola) and pour over ice in a highball glass. Add the splash of cola for color. Decorate with a slice of lemon and serve.
-                    ''',
+        instruction:
+            '''Combine all ingredients (except cola) and pour over ice in a highball glass. Add the splash of cola for color. Decorate with a slice of lemon and serve.''',
         isFavourite: true,
         name: 'Long Island Tea',
         ingredients: [
@@ -72,9 +68,7 @@ Garnish with orange twist, and a cocktail cherry.
         category: CocktailCategory.ordinaryDrink,
         cocktailType: CocktailType.alcoholic,
         glassType: GlassType.oldFashionedGlass,
-        instruction: '''
-                      Stir into glass over ice, garnish and serve.
-                    ''',
+        instruction: '''Stir into glass over ice, garnish and serve.''',
         isFavourite: true,
         name: 'Negroni',
         ingredients: [
@@ -89,9 +83,8 @@ Garnish with orange twist, and a cocktail cherry.
         category: CocktailCategory.ordinaryDrink,
         cocktailType: CocktailType.alcoholic,
         glassType: GlassType.oldFashionedGlass,
-        instruction: '''
-                      Shake with ice. Strain into chilled glass, garnish and serve. If served 'On the rocks', strain ingredients into old-fashioned glass filled with ice.
-                    ''',
+        instruction:
+            '''Shake with ice. Strain into chilled glass, garnish and serve. If served 'On the rocks', strain ingredients into old-fashioned glass filled with ice.''',
         isFavourite: true,
         name: 'Whiskey Sour',
         ingredients: [
@@ -107,9 +100,8 @@ Garnish with orange twist, and a cocktail cherry.
         category: CocktailCategory.cocktail,
         cocktailType: CocktailType.alcoholic,
         glassType: GlassType.cocktailGlass,
-        instruction: '''
-                      Straight: Pour all ingredients into mixing glass with ice cubes. Stir well. Strain in chilled martini cocktail glass. Squeeze oil from lemon peel onto the drink, or garnish with olive.
-                    ''',
+        instruction:
+            '''Straight: Pour all ingredients into mixing glass with ice cubes. Stir well. Strain in chilled martini cocktail glass. Squeeze oil from lemon peel onto the drink, or garnish with olive.''',
         isFavourite: true,
         name: 'Dry Martini',
         ingredients: [
@@ -124,9 +116,8 @@ Garnish with orange twist, and a cocktail cherry.
         category: CocktailCategory.ordinaryDrink,
         cocktailType: CocktailType.alcoholic,
         glassType: GlassType.cocktailGlass,
-        instruction: '''
-                      Pour all ingredients into shaker with ice cubes. Shake well. Strain in chilled cocktail glass.
-                    ''',
+        instruction:
+            '''Pour all ingredients into shaker with ice cubes. Shake well. Strain in chilled cocktail glass.''',
         isFavourite: true,
         name: 'Daiquiri',
         ingredients: [
@@ -141,9 +132,8 @@ Garnish with orange twist, and a cocktail cherry.
         category: CocktailCategory.ordinaryDrink,
         cocktailType: CocktailType.alcoholic,
         glassType: GlassType.cocktailGlass,
-        instruction: '''
-                      Rub the rim of the glass with the lime slice to make the salt stick to it. Take care to moisten only the outer rim and sprinkle the salt on it. The salt should present to the lips of the imbiber and never mix into the cocktail. Shake the other ingredients with ice, then carefully pour into the glass.
-                    ''',
+        instruction:
+            '''Rub the rim of the glass with the lime slice to make the salt stick to it. Take care to moisten only the outer rim and sprinkle the salt on it. The salt should present to the lips of the imbiber and never mix into the cocktail. Shake the other ingredients with ice, then carefully pour into the glass.''',
         isFavourite: true,
         name: 'Margarita',
         ingredients: [
@@ -159,9 +149,7 @@ Garnish with orange twist, and a cocktail cherry.
         category: CocktailCategory.cocktail,
         cocktailType: CocktailType.alcoholic,
         glassType: GlassType.cocktailGlass,
-        instruction: '''
-                      Stirred over ice, strained into a chilled glass, garnished, and served up.
-                    ''',
+        instruction: '''Stirred over ice, strained into a chilled glass, garnished, and served up.''',
         isFavourite: true,
         name: 'Manhattan',
         ingredients: [
@@ -179,9 +167,8 @@ Garnish with orange twist, and a cocktail cherry.
         category: CocktailCategory.punchPartyDrink,
         cocktailType: CocktailType.alcoholic,
         glassType: GlassType.copperMug,
-        instruction: '''
-                      Combine vodka and ginger beer in a highball glass filled with ice. Add lime juice. Stir gently. Garnish.
-                    ''',
+        instruction:
+            '''Combine vodka and ginger beer in a highball glass filled with ice. Add lime juice. Stir gently. Garnish.''',
         isFavourite: true,
         name: 'Moscow Mule',
         ingredients: [
@@ -196,9 +183,8 @@ Garnish with orange twist, and a cocktail cherry.
         category: CocktailCategory.ordinaryDrink,
         cocktailType: CocktailType.alcoholic,
         glassType: GlassType.cocktailGlass,
-        instruction: '''
-                      Shake all ingredients (except lime wedge) with ice and strain into a cocktail glass. Add the wedge of lime and serve.
-                    ''',
+        instruction:
+            '''Shake all ingredients (except lime wedge) with ice and strain into a cocktail glass. Add the wedge of lime and serve.''',
         isFavourite: true,
         name: 'After Dinner Cocktail',
         ingredients: [
@@ -213,9 +199,7 @@ Garnish with orange twist, and a cocktail cherry.
         category: CocktailCategory.ordinaryDrink,
         cocktailType: CocktailType.alcoholic,
         glassType: GlassType.cocktailGlass,
-        instruction: '''
-                      Shake all ingredients with ice, strain into a cocktail glass, and serve.
-                    ''',
+        instruction: '''Shake all ingredients with ice, strain into a cocktail glass, and serve.''',
         isFavourite: true,
         name: 'After Supper Cocktail',
         ingredients: [
@@ -230,9 +214,8 @@ Garnish with orange twist, and a cocktail cherry.
         category: CocktailCategory.ordinaryDrink,
         cocktailType: CocktailType.alcoholic,
         glassType: GlassType.highballGlass,
-        instruction: '''
-                      Pour all ingredients (except for lemon juice) over ice in a highball glass. Stir, add a dash of lemon juice, and serve.
-                    ''',
+        instruction:
+            '''Pour all ingredients (except for lemon juice) over ice in a highball glass. Stir, add a dash of lemon juice, and serve.''',
         isFavourite: true,
         name: 'Alabama Slammer',
         ingredients: [
@@ -248,9 +231,8 @@ Garnish with orange twist, and a cocktail cherry.
         category: CocktailCategory.ordinaryDrink,
         cocktailType: CocktailType.alcoholic,
         glassType: GlassType.cocktailGlass,
-        instruction: '''
-                      Stir all ingredients with ice, strain contents into a cocktail glass. Drop in a twist of lemon and serve.
-                    ''',
+        instruction:
+            '''Stir all ingredients with ice, strain contents into a cocktail glass. Drop in a twist of lemon and serve.''',
         isFavourite: true,
         name: 'Alaska Cocktail',
         ingredients: [
@@ -266,9 +248,8 @@ Garnish with orange twist, and a cocktail cherry.
         category: CocktailCategory.ordinaryDrink,
         cocktailType: CocktailType.alcoholic,
         glassType: GlassType.cocktailGlass,
-        instruction: '''
-                      Shake all ingredients with ice and strain contents into a cocktail glass. Sprinkle nutmeg on top and serve.
-                    ''',
+        instruction:
+            '''Shake all ingredients with ice and strain contents into a cocktail glass. Sprinkle nutmeg on top and serve.''',
         isFavourite: true,
         name: 'Alexander',
         ingredients: [
@@ -284,9 +265,8 @@ Garnish with orange twist, and a cocktail cherry.
         category: CocktailCategory.ordinaryDrink,
         cocktailType: CocktailType.alcoholic,
         glassType: GlassType.cocktailGlass,
-        instruction: '''
-                      Shake all ingredients (except nutmeg) with ice and strain contents into a cocktail glass. Sprinkle nutmeg on top and serve.
-                    ''',
+        instruction:
+            '''Shake all ingredients (except nutmeg) with ice and strain contents into a cocktail glass. Sprinkle nutmeg on top and serve.''',
         isFavourite: true,
         name: 'Brandy Alexander',
         ingredients: [
@@ -302,9 +282,7 @@ Garnish with orange twist, and a cocktail cherry.
         category: CocktailCategory.ordinaryDrink,
         cocktailType: CocktailType.alcoholic,
         glassType: GlassType.cocktailGlass,
-        instruction: '''
-                      Combine and shake all ingredients with ice, strain into a cocktail glass, and serve.
-                    ''',
+        instruction: '''Combine and shake all ingredients with ice, strain into a cocktail glass, and serve.''',
         isFavourite: true,
         name: 'Alfie Cocktail',
         ingredients: [
@@ -319,9 +297,8 @@ Garnish with orange twist, and a cocktail cherry.
         category: CocktailCategory.ordinaryDrink,
         cocktailType: CocktailType.alcoholic,
         glassType: GlassType.cocktailGlass,
-        instruction: '''
-                      Combine and shake all ingredients with ice, strain contents into a cocktail glass, and serve.
-                    ''',
+        instruction:
+            '''Combine and shake all ingredients with ice, strain contents into a cocktail glass, and serve.''',
         isFavourite: true,
         name: 'Algonquin',
         ingredients: [
@@ -336,9 +313,8 @@ Garnish with orange twist, and a cocktail cherry.
         category: CocktailCategory.ordinaryDrink,
         cocktailType: CocktailType.alcoholic,
         glassType: GlassType.cocktailGlass,
-        instruction: '''
-                      Shake all ingredients (except lemon peel) with ice and strain into a cocktail glass. Top with the twist of lemon peel and serve.
-                    ''',
+        instruction:
+            '''Shake all ingredients (except lemon peel) with ice and strain into a cocktail glass. Top with the twist of lemon peel and serve.''',
         isFavourite: true,
         name: 'Allegheny',
         ingredients: [
@@ -355,9 +331,7 @@ Garnish with orange twist, and a cocktail cherry.
         category: CocktailCategory.ordinaryDrink,
         cocktailType: CocktailType.alcoholic,
         glassType: GlassType.cocktailGlass,
-        instruction: '''
-                      Stir all ingredients with ice, strain contents into a cocktail glass, and serve.
-                    ''',
+        instruction: '''Stir all ingredients with ice, strain contents into a cocktail glass, and serve.''',
         isFavourite: true,
         name: 'Allies Cocktail',
         ingredients: [
