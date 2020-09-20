@@ -18,4 +18,10 @@ class CocktailType {
   @override
   bool operator ==(Object other) =>
       identical(this, other) || other is CocktailType && runtimeType == other.runtimeType && value == other.value;
+
+  ///
+  /// Show toString() method using in debug session
+  ///
+  @override
+  String toString() => 'CocktailType{value: $value}';
 }
