@@ -10,7 +10,7 @@ void main() {
 
   group('Coctail repository', () {
     test('fetch method should return all available cocktails', () {
-      final actualResult = repository.fetchAllCocktails();
+      final actualResult = repository.fetchPopularCocktails();
       expect(actualResult, isNotEmpty);
     });
   });
