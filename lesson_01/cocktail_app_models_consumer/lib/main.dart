@@ -9,12 +9,14 @@ void main() {
 
   runApp(
     MaterialApp(
-      home: Container(
-        color: Colors.white,
-        alignment: Alignment.center,
-        child: Text(
-          'We have ${cocktails.length} cocktails '
-          'and ${popularCocktails.length}  popular at the moment!',
+      home: Scaffold(
+        body: Container(
+          color: Colors.white,
+          alignment: Alignment.center,
+          child: Text(
+            'We have ${cocktails.length} cocktails '
+            'and ${popularCocktails.length}  popular at the moment!',
+          ),
         ),
       ),
     ),
