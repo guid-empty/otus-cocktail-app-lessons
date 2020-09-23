@@ -3,7 +3,7 @@ description: Dart Async lesson
 version: 0.0.1
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.9.0 <3.0.0"
   flutter: ">=1.17.0 <2.0.0"
 
 dependencies:
@@ -18,6 +18,3 @@ dev_dependencies:
   http: ^0.12.2
   build_runner: ^1.10.1
   json_serializable: ^3.4.1
-
-#dependency_overrides:
-#  analyzer: '0.39.14'

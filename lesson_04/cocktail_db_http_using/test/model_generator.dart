@@ -1,12 +1,12 @@
 import 'dart:convert' as convert;
 
 import 'package:cocktaildbhttpusing/models.dart';
+import 'package:cocktaildbhttpusing/src/dto/cocktail_dto.dart';
 import 'package:cocktaildbhttpusing/src/model/cocktail_category.dart';
-import 'package:cocktaildbhttpusing/src/model/cocktail_dto.dart';
 import 'package:http/http.dart' as http;
 
 void main() async {
-  Map<String, String> _getIngredients(CocktailDTO dto) {
+  Map<String, String> getIngredients(CocktailDto dto) {
     return <String, String>{
       if (dto.strIngredient1 != null) dto.strIngredient1: dto.strMeasure1,
       if (dto.strIngredient2 != null) dto.strIngredient2: dto.strMeasure2,
@@ -40,7 +40,7 @@ void main() async {
       final jsonResponse = convert.jsonDecode(response.body);
       var drinks = jsonResponse['drinks'] as Iterable<dynamic>;
 
-      final result = drinks.cast<Map<String, dynamic>>().map((json) => CocktailDTO.fromJson(json));
+      final result = drinks.cast<Map<String, dynamic>>().map((json) => CocktailDto.fromJson(json));
 
       var popularCocktails = '';
       for (final dto in result) {
@@ -50,25 +50,25 @@ void main() async {
 
         var ingredients = '';
 
-        _getIngredients(dto).forEach((key, value) => ingredients += 'IngredientDefinition(\'$key\', \'$value\'),\r\n');
+        getIngredients(dto).forEach((key, value) => ingredients += 'IngredientDefinition(\'$key\', \'$value\'),\r\n');
 
         popularCocktails += '''
-                  Cocktail(
-                    id: '${dto.idDrink}',
-                    category: CocktailCategory.${category.name},
-                    cocktailType: CocktailType.${cocktailType.name},
-                    glassType: GlassType.${glass.name},
-                    instruction: \'\'\'
-                      ${dto.strInstructions}
-                    \'\'\',
-                    isFavourite: true,
-                    name: '${dto.strDrink}',
-                    ingredients: [
-                      $ingredients
-                    ],
-                    drinkThumbUrl: '${dto.strDrinkThumb}',
-                  ),
-                ''';
+          Cocktail(
+            id: '${dto.idDrink}',
+            category: CocktailCategory.${category.name},
+            cocktailType: CocktailType.${cocktailType.name},
+            glassType: GlassType.${glass.name},
+            instruction: \'\'\'
+              ${dto.strInstructions}
+            \'\'\',
+            isFavourite: true,
+            name: '${dto.strDrink}',
+            ingredients: [
+              $ingredients
+            ],
+            drinkThumbUrl: '${dto.strDrinkThumb}',
+          ),
+        ''';
       }
 
       print(popularCocktails);

@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'cocktail_dto.g.dart';
 
 @JsonSerializable(createFactory: true, createToJson: false)
-class CocktailDTO {
+class CocktailDto {
   final String idDrink;
   final String strDrink;
   final String strDrinkAlternate;
@@ -47,7 +47,7 @@ class CocktailDTO {
   final String strMeasure15;
   final String strCreativeCommonsConfirmed;
 
-  CocktailDTO(
+  CocktailDto(
     this.idDrink,
     this.strDrink,
     this.strDrinkAlternate,
@@ -92,5 +92,5 @@ class CocktailDTO {
     this.strCreativeCommonsConfirmed,
   );
 
-  factory CocktailDTO.fromJson(Map<String, dynamic> json) => _$CocktailDTOFromJson(json);
+  factory CocktailDto.fromJson(Map<String, dynamic> json) => _$CocktailDtoFromJson(json);
 }

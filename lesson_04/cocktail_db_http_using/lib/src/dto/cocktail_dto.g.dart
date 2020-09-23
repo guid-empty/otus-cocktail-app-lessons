@@ -6,8 +6,8 @@ part of 'cocktail_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-CocktailDTO _$CocktailDTOFromJson(Map<String, dynamic> json) {
-  return CocktailDTO(
+CocktailDto _$CocktailDtoFromJson(Map<String, dynamic> json) {
+  return CocktailDto(
     json['idDrink'] as String,
     json['strDrink'] as String,
     json['strDrinkAlternate'] as String,
