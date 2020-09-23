@@ -5,6 +5,8 @@ import 'package:cocktailappmodels/src/model/ingredient_definition.dart';
 import 'package:flutter/foundation.dart';
 
 ///
+/// see some details on https://www.thecocktaildb.com/
+///
 /// Cocktail Model Definition based on response from
 /// curl https://the-cocktail-db.p.rapidapi.com/popular.php
 /// Current scheme is:
@@ -65,6 +67,20 @@ import 'package:flutter/foundation.dart';
 ///            "dateModified": "2017-01-02 20:15:04"
 ///        }
 ///  ```
+///
+///   some details about thumbs
+///   Drink thumbnails
+///         Add /preview to the end of the cocktail image URL
+///         https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg/preview (100x100 pixels)
+///
+///
+///         Ingredient Thumbnails
+///         https://www.thecocktaildb.com/images/ingredients/gin-Small.png (100x100 pixels)
+///         https://www.thecocktaildb.com/images/ingredients/gin-Medium.png (350x350 pixels)
+///         https://www.thecocktaildb.com/images/ingredients/gin.png (700x700 pixels)
+///
+///   see more on RapidApi or https://www.thecocktaildb.com/
+///
 ///
 class Cocktail {
   final String id;
