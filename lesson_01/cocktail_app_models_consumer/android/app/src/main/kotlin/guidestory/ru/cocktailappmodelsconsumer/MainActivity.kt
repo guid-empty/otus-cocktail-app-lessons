@@ -1,0 +1,6 @@
+package guidestory.ru.cocktailappmodelsconsumer
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity: FlutterActivity() {
+}
