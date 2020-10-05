@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+final globalKey = GlobalKey<_HelloWorldTitleOnlyWidgetState>(debugLabel: 'title key');
+
 void main() {
   runApp(
     GestureDetector(
@@ -10,8 +12,6 @@ void main() {
     ),
   );
 }
-
-final globalKey = GlobalKey<_HelloWorldTitleOnlyWidgetState>(debugLabel: 'title key');
 
 class HelloWorldDecorationWidget extends StatelessWidget {
   @override
