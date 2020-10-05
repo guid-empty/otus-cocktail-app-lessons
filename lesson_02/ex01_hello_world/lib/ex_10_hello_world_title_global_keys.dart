@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-final globalKey = GlobalKey<_HelloWorldTitleOnlyWidgetState>(debugLabel: 'title key');
+final globalKey = GlobalKey<HelloWorldTitleOnlyWidgetState>(debugLabel: 'title key');
 
 void main() {
   runApp(
@@ -26,7 +26,7 @@ class HelloWorldTitleOnlyWidget extends StatefulWidget {
   HelloWorldTitleOnlyWidget({Key key}) : super(key: key);
 
   @override
-  _HelloWorldTitleOnlyWidgetState createState() => _HelloWorldTitleOnlyWidgetState();
+  HelloWorldTitleOnlyWidgetState createState() => HelloWorldTitleOnlyWidgetState();
 }
 
 class RootLevelWidget extends StatelessWidget {
@@ -39,10 +39,10 @@ class SecondLevelWidget extends StatelessWidget {
   Widget build(BuildContext context) => HelloWorldDecorationWidget();
 }
 
-class _HelloWorldTitleOnlyWidgetState extends State<HelloWorldTitleOnlyWidget> {
+class HelloWorldTitleOnlyWidgetState extends State<HelloWorldTitleOnlyWidget> {
   String _title;
 
-  _HelloWorldTitleOnlyWidgetState() : super();
+  HelloWorldTitleOnlyWidgetState() : super();
 
   @override
   Widget build(BuildContext context) {
