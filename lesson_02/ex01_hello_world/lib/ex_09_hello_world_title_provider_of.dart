@@ -12,12 +12,10 @@ void main() {
 
 class HelloWorldDecorationWidget extends StatelessWidget {
   @override
-  Widget build(BuildContext context) => GestureDetector(
-        child: Container(
-          decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.lime),
-          alignment: Alignment.center,
-          child: HelloWorldTitleOnlyWidget(),
-        ),
+  Widget build(BuildContext context) => Container(
+        decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.lime),
+        alignment: Alignment.center,
+        child: HelloWorldTitleOnlyWidget(),
       );
 }
 
@@ -56,6 +54,5 @@ class TitleProvider extends InheritedWidget {
   @override
   bool updateShouldNotify(InheritedWidget oldWidget) => true;
 
-  static TitleProvider of(BuildContext context) =>
-      context.dependOnInheritedWidgetOfExactType<TitleProvider>();
+  static TitleProvider of(BuildContext context) => context.dependOnInheritedWidgetOfExactType<TitleProvider>();
 }

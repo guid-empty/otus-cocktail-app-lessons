@@ -13,13 +13,11 @@ class HelloWorldDecorationWidget extends StatelessWidget {
   const HelloWorldDecorationWidget({Key key, @required this.title}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => GestureDetector(
-        child: Container(
-          decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.lime),
-          alignment: Alignment.center,
-          child: HelloWorldTitleOnlyWidget(
-            title: title,
-          ),
+  Widget build(BuildContext context) => Container(
+        decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.lime),
+        alignment: Alignment.center,
+        child: HelloWorldTitleOnlyWidget(
+          title: title,
         ),
       );
 }
