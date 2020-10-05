@@ -46,14 +46,14 @@ class _HelloWorldTitleOnlyWidgetState extends State<HelloWorldTitleOnlyWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-
-    print(size);
-
     return Text(
       _title,
       textDirection: TextDirection.ltr,
-      style: TextStyle(color: Colors.black, fontSize: 40),
+      style: TextStyle(
+        color: Colors.black,
+        fontSize: 40,
+      ),
+      textAlign: TextAlign.center,
     );
   }
 
