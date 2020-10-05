@@ -10,6 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   json_annotation: ^3.0.1
+  meta: any
 
 dev_dependencies:
   flutter_test:
@@ -18,5 +19,6 @@ dev_dependencies:
   http: ^0.12.2
   build_runner: ^1.0.0
   json_serializable: ^3.4.1
+
 
 flutter:

@@ -1,5 +1,7 @@
 import 'package:cocktailappmodels/models.dart';
-import 'package:cocktailappmodels/src/repository/sync_cocktail_repository.dart';
+import 'package:cocktailappmodels/src/model/cocktail.dart';
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 void main() {

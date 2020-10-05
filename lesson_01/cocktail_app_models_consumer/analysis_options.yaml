@@ -14,10 +14,9 @@ analyzer:
   errors:
     avoid_returning_null_for_future: error
     avoid_void_async: error
-    implementation_imports: warning # todo: demonstrate warning level
+    implementation_imports: info # todo: demonstrate warning level
 
 linter:
   rules:
-#    - implementation_imports
     - avoid_returning_null_for_future
     - avoid_void_async
