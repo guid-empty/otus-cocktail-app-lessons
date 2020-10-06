@@ -35,34 +35,3 @@ class MarkNeedsBuild extends StatelessWidget {
     );
   }
 }
-
-//void main() {
-//  debugPrintScheduleFrameStacks = true;
-//
-//  runApp(
-//    Container(
-//      decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.white),
-//      alignment: Alignment.center,
-//      child: Text(
-//        'Hello, world!!',
-//        textDirection: TextDirection.ltr,
-//        style: TextStyle(color: Colors.black, fontSize: 40),
-//      ),
-//    ),
-//  );
-//}
-
-//void main() {
-//  runApp(
-//    MaterialApp(
-//      home: Scaffold(
-//        body: Center(
-//          child: Text(
-//            'Hello, world!!',
-//            textDirection: TextDirection.ltr,
-//          ),
-//        ),
-//      ),
-//    ),
-//  );
-//}
