@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:homework/models/models.dart';
+import 'package:homework/stars_model.dart';
 
 class CocktailDetailPage extends StatelessWidget {
   const CocktailDetailPage(
@@ -11,11 +13,250 @@ class CocktailDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    /// TODO: Сделать верстку экрана "Карточка коктейля" по модели Cocktail cocktail
-    /// Ссылка на макет
-    /// https://www.figma.com/file/d2JJUBFu7Dg0HOV30XG7Z4/OTUS-FLUTTER.-%D0%A3%D1%80%D0%BE%D0%BA-3-%D0%94%D0%97?node-id=20%3A590
-    ///для того что бы весь контент поместился, необходимо использовать SingleChildScrollView()
-    ///
-    ///
+    return SingleChildScrollView(
+      child: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              const Color(0xFF0E0D13),
+              const Color(0xFF0E0D13),
+            ],
+            tileMode: TileMode.repeated,
+          ),
+        ),
+        child: Column(
+          children: <Widget>[
+            Container(
+              margin: EdgeInsets.only(top: 50, left: 28, right: 19),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Image.asset('images/Vector1.png'),
+                  Image.asset('images/Vector.png'),
+                ],
+              ),
+            ),
+            Container(
+              width: 375,
+              height: 343,
+              child: Image.asset(
+                'images/Rectangle_7.png',
+              ),
+            ),
+            Container(
+              decoration: BoxDecoration(
+                color: Color(0xFF1A1927),
+              ),
+              child: Column(
+                children: <Widget>[
+                  Row(
+                    children: <Widget>[
+                      Container(
+                        margin: EdgeInsets.only(left: 32, top: 33),
+                        child: Align(
+                          alignment: Alignment.topLeft,
+                          child: Text(
+                            cocktail.name,
+                            style: TextStyle(color: Colors.white, fontSize: 20),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(left: 170, top: 33),
+                        child: Image.asset('images/heart.png'),
+                      ),
+                    ],
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(left: 32, top: 10),
+                    child: Align(
+                      alignment: Alignment.topLeft,
+                      child: Text(
+                        'id:${cocktail.id}',
+                        style: TextStyle(color: Color(0xff848396), fontSize: 13),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(left: 32, top: 20),
+                    child: Align(
+                      alignment: Alignment.topLeft,
+                      child: Text(
+                        'Категория коктеля',
+                        style: TextStyle(color: Color(0xFFEAEAEA), fontSize: 14),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    width: 90,
+                    height: 30,
+                    decoration: BoxDecoration(
+                      color: Color(0xFF0E0D13),
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    margin: EdgeInsets.only(right: 272, top: 14),
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: Text(
+                        cocktail.category.name,
+                        style: TextStyle(color: Color(0xFFEAEAEA), fontSize: 15),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(left: 32, top: 20),
+                    child: Align(
+                      alignment: Alignment.topLeft,
+                      child: Text(
+                        'Тип коктеля',
+                        style: TextStyle(color: Color(0xFFEAEAEA), fontSize: 14),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    width: 129,
+                    height: 30,
+                    decoration: BoxDecoration(
+                      color: Color(0xFF0E0D13),
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    margin: EdgeInsets.only(right: 245, top: 14),
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: Text(
+                        cocktail.cocktailType.value,
+                        style: TextStyle(color: Color(0xFFEAEAEA), fontSize: 15),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(left: 32, top: 20),
+                    child: Align(
+                      alignment: Alignment.topLeft,
+                      child: Text(
+                        'Тип стекла',
+                        style: TextStyle(color: Color(0xFFEAEAEA), fontSize: 14),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    width: 90,
+                    height: 30,
+                    decoration: BoxDecoration(
+                      color: Color(0xFF0E0D13),
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    margin: EdgeInsets.only(right: 276, top: 14, bottom: 24),
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: Text(
+                        cocktail.glassType.name,
+                        style: TextStyle(color: Color(0xFFEAEAEA), fontSize: 15),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 24, bottom: 11),
+              child: Align(
+                alignment: Alignment.center,
+                child: Text(
+                  'Ингридиенты:',
+                  style: TextStyle(color: Color(0xFFB1AFC6), fontSize: 16),
+                ),
+              ),
+            ),
+            Column(
+              children: cocktail.ingredients
+                  .map(
+                    (ingredient) => Row(
+                      children: [
+                        Expanded(
+                          child: Container(
+                            padding: EdgeInsets.only(left: 32, bottom: 16),
+                            child: Text(
+                              ingredient.ingredientName,
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 14,
+                                  decoration: TextDecoration.underline),
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: Container(
+                            padding: EdgeInsets.only(left: 115, bottom: 16),
+                            child: Text(
+                              ingredient.measure,
+                              style: TextStyle(color: Colors.white, fontSize: 14),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+                  .toList(),
+            ),
+            Container(
+              height: 273,
+              decoration: BoxDecoration(
+                color: Color(0xFF201F2C),
+              ),
+              child: Column(
+                children: [
+                  Container(
+                    child: Text(
+                      'Инструкция для приготовления:',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    padding: EdgeInsets.only(top: 24),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(left: 32, top: 24),
+                    child: Text(
+                      cocktail.instruction,
+                      style: TextStyle(
+                        color: Colors.white,
+                        wordSpacing: 10,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Center(
+              child: Container(
+                height: 100,
+                padding: EdgeInsets.only(left: 34, right: 34),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Stars(
+                      starImg: Image.asset('images/Star 1.png'),
+                    ),
+                    Stars(
+                      starImg: Image.asset('images/Star 1.png'),
+                    ),
+                    Stars(
+                      starImg: Image.asset('images/Star 1.png'),
+                    ),
+                    Stars(
+                      starImg: Image.asset('images/Star 2.png'),
+                    ),
+                    Stars(
+                      starImg: Image.asset('images/Star 2.png'),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
