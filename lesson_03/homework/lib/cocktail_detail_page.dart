@@ -1,16 +1,222 @@
+// import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:homework/models/models.dart';
 
 class CocktailDetailPage extends StatelessWidget {
   const CocktailDetailPage(
     this.cocktail, {
-    Key key,
+    Key key
   }) : super(key: key);
 
   final Cocktail cocktail;
 
+  Widget _buildCocktailHeader(Cocktail cocktail) {
+    return Image.network(cocktail.drinkThumbUrl);
+  }
+
+  Widget _buildCocktailDetailedDescription(String name, value) {
+    return Column(
+      children: [
+        Align(
+          alignment: Alignment.centerLeft,
+          child: Container(
+            margin: EdgeInsets.only(top: 22),
+            child: Text(name, style: TextStyle(
+                fontSize: 14,
+                color: Color(0xFFEAEAEA)
+            ),),
+          ),
+        ),
+        Align(
+          alignment: Alignment.centerLeft,
+          child: Container(
+            margin: EdgeInsets.only(left: 16, top: 15),
+            child: Text(value, style: TextStyle(
+                fontSize: 15,
+                color: Colors.white
+            ),),
+          ),
+        )
+      ],
+    );
+  }
+
+  Widget _buildCocktailDescription(Cocktail cocktail) {
+    return Container(
+      color: Color(0xFF1A1927),
+      child: Padding(
+        padding: const EdgeInsets.only(left: 32, top: 33, right: 34, bottom: 24),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(cocktail.name, style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.white
+                ),),
+                cocktail.isFavourite ? Image.asset('assets/images/heart.png') : Container()
+              ],
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top:10.0),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text('id ' + cocktail.id, style: TextStyle(
+                    fontSize: 13,
+                    color: Color(0xFF848396)
+                ),),
+              ),
+            ),
+            _buildCocktailDetailedDescription('Категория коктейля', cocktail.category.value),
+            _buildCocktailDetailedDescription('Тип коктейля', cocktail.cocktailType.value),
+            _buildCocktailDetailedDescription('Тип стекла', cocktail.glassType.value )
+          ],
+        ),
+      ),
+    );
+  }
+
+  List<Widget> ingridientsData() {
+    List<Widget> list = List();
+    for (int i = 0; i < cocktail.ingredients.length; i++) {
+      list.add(
+        Container(
+          margin: EdgeInsets.only(top: 16),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                cocktail.ingredients.toList()[i].ingredientName,
+                style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.white
+                ),
+              ),
+              Text(
+                cocktail.ingredients.toList()[i].measure,
+                style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.white
+                ),
+              )
+            ],
+          ),
+        )
+      );
+      // list.add(Text('cocktail', style: TextStyle(color: Colors.white, fontSize: 30),));
+    }
+    return list;
+  }
+
+  Widget _buildIngridients(Cocktail cocktail) {
+    return Container(
+      color: Colors.black,
+      child: Padding(
+        padding: EdgeInsets.only(left: 32, top: 24, right: 36, bottom: 24),
+        child: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.only(bottom: 8),
+              child: Center(
+                child: Text(
+                  'Ингредиенты:', style: TextStyle(
+                    fontSize: 16,
+                    color: Color(0xFFB1AFC6)
+                ),
+                ),
+              ),
+            ),
+            Column(
+              children: ingridientsData(),
+            )
+          ],
+        ),
+      ),
+    );
+
+  }
+
+  Widget _buildCookInstructions(Cocktail cocktail) {
+    return Container(
+      color: Color(0xFF201F2C),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Column(
+          children: [
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Container(
+                margin: EdgeInsets.only(left: 12, top: 24, bottom: 24),
+                child: Text('Инструкция для приготовления', style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 14
+                ),),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(bottom: 40),
+              child: Text(cocktail.instruction.replaceAll('-', '* '), style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.white
+              ),),
+            )
+        ],
+      ),
+      ),
+    );
+  }
+
+  Widget _buildRatingBar() {
+    return Container(
+      color: Color(0xFF1A1927),
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 35, vertical: 24),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Image.asset('assets/images/starFill.png'),
+            Image.asset('assets/images/starFill.png'),
+            Image.asset('assets/images/starFill.png'),
+            Image.asset('assets/images/starEmpty.png'),
+            Image.asset('assets/images/starEmpty.png')
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    print(cocktail.ingredients.toList()[5]);
+    return Stack(
+      children: [
+        SingleChildScrollView(
+          child: Column(
+            children: [
+              _buildCocktailHeader(cocktail),
+              _buildCocktailDescription(cocktail),
+              _buildIngridients(cocktail),
+              _buildCookInstructions(cocktail),
+              _buildRatingBar()
+            ],
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.only(left: 24, top: 54, right: 16),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Image.asset('assets/images/backButton.png'),
+              Image.asset('assets/images/shareButton.png')
+            ],
+          ),
+        )
+      ],
+    );
     return Stack(
       children: [
         SingleChildScrollView(
