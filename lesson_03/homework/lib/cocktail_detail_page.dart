@@ -230,7 +230,7 @@ class CocktailDetailPage extends StatelessWidget {
             ),
             Center(
               child: Container(
-                height: 100,
+                height: 101,
                 padding: EdgeInsets.only(left: 34, right: 34),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
