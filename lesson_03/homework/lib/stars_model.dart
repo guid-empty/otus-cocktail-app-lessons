@@ -8,7 +8,7 @@ class Stars extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.grey,),
+      decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.grey),
       child: starImg,
     );
 
