@@ -124,6 +124,12 @@ class CocktailDetailPage extends StatelessWidget {
   Widget _buildNameAreaValue(String text, double marginTop) => Container(
         padding: const EdgeInsets.only(left: 16, top: 6, right: 16, bottom: 6),
         margin: EdgeInsets.only(top: marginTop),
+        decoration: new BoxDecoration(
+          color: Color(0xff15151C),
+          borderRadius: BorderRadius.all(
+            const Radius.circular(30.0),
+          ),
+        ),
         child: Text(
           text,
           style: const TextStyle(
