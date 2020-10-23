@@ -39,11 +39,10 @@ class CocktailDetailPage extends StatelessWidget {
               ),
             ),
             Container(
-              width: 375,
-              height: 343,
-              child: Image.asset(
-                'images/Rectangle_7.png',
-              ),
+
+             child: Image.asset(
+               'images/Rectangle_7.png',
+             ),
             ),
             buildCocktailType(),
             Container(
@@ -146,8 +145,7 @@ class CocktailDetailPage extends StatelessWidget {
             ),
           ),
           Container(
-            width: 90,
-            height: 30,
+
             decoration: BoxDecoration(
               color: Color(0xFF0E0D13),
               borderRadius: BorderRadius.circular(16),
@@ -172,8 +170,7 @@ class CocktailDetailPage extends StatelessWidget {
             ),
           ),
           Container(
-            width: 129,
-            height: 30,
+
             decoration: BoxDecoration(
               color: Color(0xFF0E0D13),
               borderRadius: BorderRadius.circular(16),
@@ -198,8 +195,7 @@ class CocktailDetailPage extends StatelessWidget {
             ),
           ),
           Container(
-            width: 90,
-            height: 30,
+
             decoration: BoxDecoration(
               color: Color(0xFF0E0D13),
               borderRadius: BorderRadius.circular(16),
@@ -251,7 +247,7 @@ class CocktailDetailPage extends StatelessWidget {
   Center buildCenter() {
     return Center(
       child: Container(
-        height: 101,
+
         padding: EdgeInsets.only(left: 34, right: 34),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
