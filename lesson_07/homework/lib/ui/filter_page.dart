@@ -11,9 +11,13 @@
 // 8. Делаем fork от репозитория и сдаем через PR
 // 9. Помним про декомпозицию кода по методам и классам.
 
+// ignore: avoid_web_libraries_in_flutter
+
 import 'package:cocktail/core/models.dart';
 import 'package:cocktail/ui/cocktail_images.dart';
+import 'package:cocktail/ui/error_page.dart';
 import 'package:cocktail/ui/primary_layer.dart';
+import 'package:cocktail/ui/shaker_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/rendering/box.dart';
@@ -38,39 +42,71 @@ class CocktailsFilterScreen extends StatelessWidget {
                   SizedBox(
                     width: 5,
                   ),
-                  MenuCocktailCategory(nameCocktailCategory: 'null'),
+                  MenuCocktailCategory(
+                    nameCocktailCategory: 'null',
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>ErrorPage()));
+                      debugPrint(' ');
+                    },
+                  ),
                   SizedBox(
                     width: 5,
                   ),
-                  MenuCocktailCategory(nameCocktailCategory: 'null'),
+                  MenuCocktailCategory(nameCocktailCategory: 'nullllllllllll',
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>ShakerPage()));
+                    debugPrint(' ');
+                  },
+                  ),
                   SizedBox(
                     width: 5,
                   ),
-                  MenuCocktailCategory(nameCocktailCategory: 'null'),
+                  MenuCocktailCategory(nameCocktailCategory: 'null',
+                    onPressed: () {
+                      debugPrint(' ');
+                    },),
                   SizedBox(
                     width: 5,
                   ),
-                  MenuCocktailCategory(nameCocktailCategory: 'null'),
+                  MenuCocktailCategory(nameCocktailCategory: 'null',
+                    onPressed: () {
+                      debugPrint(' ');
+                    },),
                   SizedBox(
                     width: 5,
                   ),
-                  MenuCocktailCategory(nameCocktailCategory: 'null'),
+                  MenuCocktailCategory(nameCocktailCategory: 'null',
+                    onPressed: () {
+                      debugPrint(' ');
+                    },),
                   SizedBox(
                     width: 5,
                   ),
-                  MenuCocktailCategory(nameCocktailCategory: 'null'),
+                  MenuCocktailCategory(nameCocktailCategory: 'null',
+                    onPressed: () {
+                      debugPrint(' ');
+                    },),
                   SizedBox(
                     width: 5,
                   ),
-                  MenuCocktailCategory(nameCocktailCategory: 'null'),
+                  MenuCocktailCategory(nameCocktailCategory: 'null',
+                    onPressed: () {
+                      debugPrint(' ');
+                    },),
                   SizedBox(
                     width: 5,
                   ),
-                  MenuCocktailCategory(nameCocktailCategory: 'null'),
+                  MenuCocktailCategory(nameCocktailCategory: 'null',
+                    onPressed: () {
+                      debugPrint(' ');
+                    },),
                   SizedBox(
                     width: 5,
                   ),
-                  MenuCocktailCategory(nameCocktailCategory: 'null'),
+                  MenuCocktailCategory(nameCocktailCategory: 'null',
+                    onPressed: () {
+                      debugPrint(' ');
+                    },),
                   SizedBox(
                     width: 5,
                   ),
@@ -115,23 +151,27 @@ class CocktailsFilterScreen extends StatelessWidget {
                     ),
                   ),
                   Positioned(
-                    bottom: - 5.0,
+                    bottom: -5.0,
                     right: 108,
                     child: Chip(
-                      backgroundColor:Color(0xFF15151C),
-                      label: Text('Id cocktail', style: TextStyle(fontSize: 10, color: Colors.white),),
-
+                      backgroundColor: Color(0xFF15151C),
+                      label: Text(
+                        'Id cocktail',
+                        style: TextStyle(fontSize: 10, color: Colors.white),
+                      ),
                     ),
                   ),
-              Positioned(
-                bottom: - 5.0,
-                left: 45,
-                child: Chip(
-                  backgroundColor:Color(0xFF15151C),
-                  label: Text('Id cocktail', style: TextStyle(fontSize: 10, color: Colors.white),),
-
-                ),
-              ),
+                  Positioned(
+                    bottom: -5.0,
+                    left: 45,
+                    child: Chip(
+                      backgroundColor: Color(0xFF15151C),
+                      label: Text(
+                        'Id cocktail',
+                        style: TextStyle(fontSize: 10, color: Colors.white),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),

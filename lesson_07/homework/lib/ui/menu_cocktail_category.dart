@@ -3,15 +3,14 @@ import 'package:flutter/material.dart';
 
 class MenuCocktailCategory extends StatelessWidget {
   final String nameCocktailCategory;
+  final Function onPressed;
 
-  MenuCocktailCategory({@required this.nameCocktailCategory});
+  MenuCocktailCategory({@required this.nameCocktailCategory, this.onPressed});
 
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
-      onPressed: () {
-        debugPrint('I am a material button');
-      },
+      onPressed: onPressed,
       shape: const StadiumBorder(),
       textColor: Colors.black,
       color: Color(0xFF201F2C),
