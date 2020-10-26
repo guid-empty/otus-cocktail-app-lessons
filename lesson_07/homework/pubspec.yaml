@@ -11,6 +11,10 @@ dependencies:
     sdk: flutter
   json_annotation: ^3.0.1
 
+flutter:
+  assets:
+    - assets/images/shaker.png
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
