@@ -17,50 +17,50 @@ class ErrorPage extends StatelessWidget {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  SizedBox(
-                    width: 5,
-                  ),
-                  MenuCocktailCategory(nameCocktailCategory: 'null',
-                    onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>CocktailsFilterScreen()));
-                      debugPrint(' ');
-                    },
-                  ),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  MenuCocktailCategory(nameCocktailCategory: 'null'),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  MenuCocktailCategory(nameCocktailCategory: 'null'),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  MenuCocktailCategory(nameCocktailCategory: 'null'),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  MenuCocktailCategory(nameCocktailCategory: 'null'),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  MenuCocktailCategory(nameCocktailCategory: 'null'),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  MenuCocktailCategory(nameCocktailCategory: 'null'),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  MenuCocktailCategory(nameCocktailCategory: 'null'),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  MenuCocktailCategory(nameCocktailCategory: 'null'),
-                  SizedBox(
-                    width: 5,
-                  ),
+                  // SizedBox(
+                  //   width: 5,
+                  // ),
+                  // MenuCocktailCategory(nameCocktailCategory: 'null',
+                  //   onPressed: () {
+                  //     Navigator.push(context, MaterialPageRoute(builder: (context)=>CocktailsFilterScreen()));
+                  //     debugPrint(' ');
+                  //   },
+                  // ),
+                  // SizedBox(
+                  //   width: 5,
+                  // ),
+                  // MenuCocktailCategory(nameCocktailCategory: 'null'),
+                  // SizedBox(
+                  //   width: 5,
+                  // ),
+                  // MenuCocktailCategory(nameCocktailCategory: 'null'),
+                  // SizedBox(
+                  //   width: 5,
+                  // ),
+                  // MenuCocktailCategory(nameCocktailCategory: 'null'),
+                  // SizedBox(
+                  //   width: 5,
+                  // ),
+                  // MenuCocktailCategory(nameCocktailCategory: 'null'),
+                  // SizedBox(
+                  //   width: 5,
+                  // ),
+                  // MenuCocktailCategory(nameCocktailCategory: 'null'),
+                  // SizedBox(
+                  //   width: 5,
+                  // ),
+                  // MenuCocktailCategory(nameCocktailCategory: 'null'),
+                  // SizedBox(
+                  //   width: 5,
+                  // ),
+                  // MenuCocktailCategory(nameCocktailCategory: 'null'),
+                  // SizedBox(
+                  //   width: 5,
+                  // ),
+                  // MenuCocktailCategory(nameCocktailCategory: 'null'),
+                  // SizedBox(
+                  //   width: 5,
+                  // ),
                 ],
               ),
 

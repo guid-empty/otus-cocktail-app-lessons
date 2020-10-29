@@ -17,7 +17,7 @@ import 'package:cocktail/core/models.dart';
 import 'package:cocktail/ui/cocktail_images.dart';
 import 'package:cocktail/ui/error_page.dart';
 import 'package:cocktail/ui/primary_layer.dart';
-import 'package:cocktail/ui/shaker_page.dart';
+import 'package:cocktail/ui/waiting_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/rendering/box.dart';
@@ -27,7 +27,9 @@ import 'menu_cocktail_category.dart';
 class CocktailsFilterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
     CocktailCategory cocktailCategory;
+    Cocktail cocktail = Cocktail(id: "15555");
     return Scaffold(
       backgroundColor: Color(0xFF0E0D13),
       body: Container(
@@ -39,78 +41,9 @@ class CocktailsFilterScreen extends StatelessWidget {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  SizedBox(
-                    width: 5,
-                  ),
-                  MenuCocktailCategory(
-                    nameCocktailCategory: 'null',
-                    onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>ErrorPage()));
-                      debugPrint(' ');
-                    },
-                  ),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  MenuCocktailCategory(nameCocktailCategory: 'nullllllllllll',
-                    onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>ShakerPage()));
-                    debugPrint(' ');
-                  },
-                  ),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  MenuCocktailCategory(nameCocktailCategory: 'null',
-                    onPressed: () {
-                      debugPrint(' ');
-                    },),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  MenuCocktailCategory(nameCocktailCategory: 'null',
-                    onPressed: () {
-                      debugPrint(' ');
-                    },),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  MenuCocktailCategory(nameCocktailCategory: 'null',
-                    onPressed: () {
-                      debugPrint(' ');
-                    },),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  MenuCocktailCategory(nameCocktailCategory: 'null',
-                    onPressed: () {
-                      debugPrint(' ');
-                    },),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  MenuCocktailCategory(nameCocktailCategory: 'null',
-                    onPressed: () {
-                      debugPrint(' ');
-                    },),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  MenuCocktailCategory(nameCocktailCategory: 'null',
-                    onPressed: () {
-                      debugPrint(' ');
-                    },),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  MenuCocktailCategory(nameCocktailCategory: 'null',
-                    onPressed: () {
-                      debugPrint(' ');
-                    },),
-                  SizedBox(
-                    width: 5,
-                  ),
+                  findChipWidget(CocktailCategory.values),
                 ],
+
               ),
             ),
             Container(
@@ -146,8 +79,9 @@ class CocktailsFilterScreen extends StatelessWidget {
                     bottom: 47,
                     right: 145,
                     child: Text(
+
                       'Text',
-                      style: TextStyle(color: Colors.white, fontSize: 14),
+                      style: TextStyle(color: Colors.white, fontSize: 14,),
                     ),
                   ),
                   Positioned(
@@ -156,7 +90,7 @@ class CocktailsFilterScreen extends StatelessWidget {
                     child: Chip(
                       backgroundColor: Color(0xFF15151C),
                       label: Text(
-                        'Id cocktail',
+                        cocktail.id.toString(),
                         style: TextStyle(fontSize: 10, color: Colors.white),
                       ),
                     ),
@@ -181,38 +115,3 @@ class CocktailsFilterScreen extends StatelessWidget {
     );
   }
 }
-
-// Row(
-// mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-// children: [
-// Container(
-// margin: EdgeInsets.only(top: 24),
-// child: CocktailImages(
-// img: Image.asset(
-// 'image/Mohito.png',
-// width: 170,
-// height: 215,
-// fit: BoxFit.fill,
-// ),
-// ),
-// ),
-// Container(
-// margin: EdgeInsets.only(top: 24),
-// child: CocktailImages(
-// img: Image.asset(
-// 'image/FreshArbuz.png',
-// width: 170,
-// height: 215,
-// fit: BoxFit.fill,
-// ),
-// ),
-// ),
-// Row(
-// children: [
-// Text(
-// 'dddkdcdc', style: TextStyle(color: Colors.white),
-// ),
-// ],
-// )
-// ],
-// ),
