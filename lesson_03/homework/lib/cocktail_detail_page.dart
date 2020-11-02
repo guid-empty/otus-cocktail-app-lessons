@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:homework/models/models.dart';
 
@@ -19,7 +21,14 @@ class HeaderContainer extends StatelessWidget {
         overflow: Overflow.clip,
         fit: StackFit.expand,
         children: [
-          imageCocktail,
+          Container(
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    colors: [Color.fromARGB(14, 13, 19, 0), Color(0xFF0E0D13)],
+                    stops: [0.44, 0.94])
+            ),
+            child:imageCocktail ,
+          ),
           Positioned(
             top: 58,
             left: 28,
