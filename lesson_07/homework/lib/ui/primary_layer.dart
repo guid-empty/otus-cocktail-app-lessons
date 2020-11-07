@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class PrimaryLayers extends StatelessWidget {
   final Widget child;
@@ -7,8 +8,9 @@ class PrimaryLayers extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.only(top: 111),
+    return Scaffold(
+      body: Container (
+       padding: EdgeInsets.only(top: 50),
       child: child,
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -20,6 +22,7 @@ class PrimaryLayers extends StatelessWidget {
           ],
           tileMode: TileMode.repeated,
         ),
+      ),
       ),
     );
   }

@@ -14,104 +14,112 @@
 // ignore: avoid_web_libraries_in_flutter
 
 import 'package:cocktail/core/models.dart';
-import 'package:cocktail/ui/cocktail_images.dart';
-import 'package:cocktail/ui/error_page.dart';
 import 'package:cocktail/ui/primary_layer.dart';
-import 'package:cocktail/ui/waiting_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/rendering/box.dart';
+import 'card_cocktail_category.dart';
 
-import 'menu_cocktail_category.dart';
+class CocktailsFilterScreen extends StatefulWidget {
+  @override
+  _CocktailsFilterScreenState createState() => _CocktailsFilterScreenState();
+}
 
-class CocktailsFilterScreen extends StatelessWidget {
+class _CocktailsFilterScreenState extends State<CocktailsFilterScreen> {
+  List<CocktailDefinition> _coctailDefinish;
+  final _categoryNotifier = ValueNotifier(CocktailCategory.values.first);
+  CocktailDefinition indexx;
+
   @override
   Widget build(BuildContext context) {
+    return PrimaryLayers(
+      child: Column(
 
-    CocktailCategory cocktailCategory;
-    Cocktail cocktail = Cocktail(id: "15555");
-    return Scaffold(
-      backgroundColor: Color(0xFF0E0D13),
-      body: Container(
-        margin: EdgeInsets.only(top: 50),
-        child: Column(
-          children: [
-            Container(
-              height: 50,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: [
-                  findChipWidget(CocktailCategory.values),
-                ],
-
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.only(top: 24),
-              child: Stack(
-                alignment: Alignment.topCenter,
-                overflow: Overflow.clip,
-                children: <Widget>[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      CocktailImages(
-                        img: Image.asset(
-                          'image/Mohito.png',
-                        ),
-                      ),
-                      CocktailImages(
-                        img: Image.asset(
-                          'image/FreshArbuz.png',
+        children: [
+          Container(
+            height: 50,
+            child: ValueListenableBuilder(
+              valueListenable: _categoryNotifier,
+              builder: (context, categor, c) => Container(
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: CocktailCategory.values
+                      .map(
+                        (item) => Container(
+                          margin: EdgeInsets.all(4),
+                          child: ChoiceChip(
+                            padding: EdgeInsets.all(10),
+                            label: Text(item.value),
+                            labelStyle: TextStyle(color: Colors.white, fontSize: 15),
+                            backgroundColor: Color(0xFF201F2C),
+                            selectedColor: Color(0xFF3B3953),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30),
+                            ),
+                            selected: categor == item,
+                            onSelected: (selected) {
+                              _categoryNotifier.value = item;
+                            },
+                          ),
                         ),
                       )
-                    ],
-                  ),
-                  Positioned(
-                    bottom: 47,
-                    left: 50,
-                    child: Text(
-                      'Text',
-                      style: TextStyle(color: Colors.white, fontSize: 14),
-                    ),
-                  ),
-                  Positioned(
-                    bottom: 47,
-                    right: 145,
-                    child: Text(
-
-                      'Text',
-                      style: TextStyle(color: Colors.white, fontSize: 14,),
-                    ),
-                  ),
-                  Positioned(
-                    bottom: -5.0,
-                    right: 108,
-                    child: Chip(
-                      backgroundColor: Color(0xFF15151C),
-                      label: Text(
-                        cocktail.id.toString(),
-                        style: TextStyle(fontSize: 10, color: Colors.white),
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    bottom: -5.0,
-                    left: 45,
-                    child: Chip(
-                      backgroundColor: Color(0xFF15151C),
-                      label: Text(
-                        'Id cocktail',
-                        style: TextStyle(fontSize: 10, color: Colors.white),
-                      ),
-                    ),
-                  ),
-                ],
+                      .toList(),
+                ),
               ),
             ),
-          ],
-        ),
+          ),
+          SizedBox(
+            height: 25,
+          ),
+          ValueListenableBuilder(
+            valueListenable: _categoryNotifier,
+            builder: (context, category, c) => FutureBuilder(
+              future: AsyncCocktailRepository().fetchCocktailsByCocktailCategory(category),
+              builder: (context, snapshot) {
+                _coctailDefinish = snapshot.data;
+                if (snapshot.hasError) {
+                  return Padding(
+                    padding: EdgeInsets.all(100),
+                    child: Text(
+                      'ERROR',
+                      style:
+                          TextStyle(color: Colors.red, fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
+                  );
+                }
+                if (snapshot.hasData) {
+                  for (int i = 0; i < _coctailDefinish.length; i++) {
+                    this.indexx = _coctailDefinish[i];
+                  }
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      CardCoctailCategory(
+                        indexx,
+                        cocktailCategory: _categoryNotifier.value,
+                      ),
+                      CardCoctailCategory(
+                        indexx,
+                        cocktailCategory: _categoryNotifier.value,
+                      ),
+                    ],
+                  );
+                }
+                return Padding(
+                    padding: EdgeInsets.all(100), child: Image.asset('image/shaker.png'));
+              },
+            ),
+          ),
+        ],
       ),
     );
   }
 }
+
+// применение extension
+extension widgetCocktailImagesExtinsion on Widget {
+  Widget withCocktailImages() => ClipRRect(
+        borderRadius: BorderRadius.circular(8),
+        child: this,
+      );
+}
+
