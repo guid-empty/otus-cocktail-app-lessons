@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:homework/models/models.dart';
+import 'dart:math' as Math;
 
 class CocktailDetailPage extends StatelessWidget {
   const CocktailDetailPage(
@@ -80,11 +81,7 @@ class CocktailDetailPage extends StatelessWidget {
                   ),
                 ),
               ),
-              Icon(
-                Icons.favorite,
-                color: Color(0xffffffff),
-                size: 20.0,
-              ),
+              AnimatedFavorite(),
             ],
           ),
           Container(
@@ -295,4 +292,85 @@ class CocktailDetailPage extends StatelessWidget {
         backgroundColor: Color(0xff2A293A),
         radius: 24.0,
       );
+}
+
+// виджет анимированного сердечка (избранное)
+// при нажатии меняет размер и цвет
+// размер сперва увеличивается, потом уменьшается до исходного размера
+// цвет меняется от белого к красному и наоборот при повторном нажатии
+class AnimatedFavorite extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return AnimatedFavoriteState();
+  }
+}
+
+class AnimatedFavoriteState extends State<AnimatedFavorite>
+    with SingleTickerProviderStateMixin {
+  Animation<double> _animationSize;
+  Animation<Color> _animationColor;
+  Animation<Color> _animationColorRevers;
+  AnimationController _controller;
+
+  bool _isFirst = true;
+  bool _isSelected = false;
+  bool _inProgress = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller =
+        AnimationController(vsync: this, duration: Duration(seconds: 1));
+
+    _animationSize = Tween<double>(begin: 0, end: Math.pi)
+        .animate(_controller);
+
+    _animationColor = ColorTween(begin: Colors.white, end: Colors.red)
+        .animate(_controller);
+
+    _animationColorRevers = ColorTween(begin: Colors.red, end: Colors.white)
+        .animate(_controller);
+
+    _animationSize.addListener(() {
+      setState(() {});
+    });
+
+    _animationSize.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        _inProgress = false;
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        if (!_inProgress) {
+          _isSelected = !_isSelected;
+          _inProgress = true;
+          _isFirst = false;
+          _controller.forward(from: 0);
+        }
+      },
+      child: Icon(
+        Icons.favorite,
+        color: getAnimatedColor(),
+        size: 20 + Math.sin(_animationSize.value) * 10,
+      ),
+    );
+  }
+
+  // сделано для того, чтобы правильно наичнать анимацию в прямом и обратном направлении
+  Color getAnimatedColor() {
+    if (_isSelected && _isFirst) {
+      return _animationColorRevers.value;
+    }
+
+    if (!_isSelected && _isFirst) {
+      return _animationColor.value;
+    }
+
+    return _isSelected ? _animationColor.value : _animationColorRevers.value;
+  }
 }
