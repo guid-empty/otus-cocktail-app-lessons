@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:homework/ui/filter_page.dart';
+import 'package:homework/ui/favourite_cocktails_screen.dart';
 import 'package:homework/ui/style/theme.dart';
 
 import 'core/src/repository/async_cocktail_repository.dart';
