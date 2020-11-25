@@ -55,29 +55,31 @@ class _CupertinoPopupsState extends State<CupertinoPopups> {
             actionScrollController: ScrollController(),
             actions: [
               CupertinoDialogAction(
+                 isDefaultAction: true,
                 child: Text('Ok'),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
               ),
               CupertinoDialogAction(
+                isDestructiveAction: true,
                 child: Text('Cancel'),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
               ),
-              // CupertinoDialogAction(
-              //   child: Text('Action1'),
-              //   onPressed: () {
-              //     Navigator.of(context).pop();
-              //   },
-              // ),
-              // CupertinoDialogAction(
-              //   child: Text('Action2'),
-              //   onPressed: () {
-              //     Navigator.of(context).pop();
-              //   },
-              // )
+              CupertinoDialogAction(
+                child: Text('Action1'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+              CupertinoDialogAction(
+                child: Text('Action2'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              )
             ],
           );
         });
@@ -138,6 +140,12 @@ class _CupertinoPopupsState extends State<CupertinoPopups> {
                   isDefaultAction: true,
                   child: Text('Default Action')),
               CupertinoActionSheetAction(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  isDefaultAction: true,
+                  child: Text('Default Action')),
+              CupertinoActionSheetAction(
                 onPressed: () {},
                 isDestructiveAction: true,
                 child: Text('Destructive Action'),
@@ -160,7 +168,9 @@ class _CupertinoPopupsState extends State<CupertinoPopups> {
             height: MediaQuery.of(context).size.height / 3,
             child: CupertinoTimerPicker(
                 mode: CupertinoTimerPickerMode.hm,
-                onTimerDurationChanged: (time) {}),
+                onTimerDurationChanged: (time) {
+
+                }),
           );
         });
   }

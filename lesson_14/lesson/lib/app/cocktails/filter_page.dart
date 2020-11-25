@@ -92,8 +92,8 @@ class _CocktailsFilterScreenState extends State<CocktailsFilterScreen> {
                             context, snapshot.data.elementAt(index));
                       },
                       onLongPress: () {
-                        _showPopupDetails(
-                            context, snapshot.data.elementAt(index));
+                        // _showPopupDetails(
+                        //     context, snapshot.data.elementAt(index));
                       },
                       child: CocktailGridItem(snapshot.data.elementAt(index),
                           selectedCategory: _categoryNotifier.value),
@@ -114,18 +114,18 @@ class _CocktailsFilterScreenState extends State<CocktailsFilterScreen> {
 
 
   //variant 1
-  void _showPopupDetails(
-      BuildContext context, CocktailDefinition cocktailDefinition) {
-    Navigator.of(context).push(PageRouteBuilder(
-        opaque: false,
-        barrierDismissible: true,
-        barrierLabel: 'l',
-        barrierColor: Colors.black45,
-        fullscreenDialog: true,
-        pageBuilder: (context, a, sa) {
-      return Center(child: CocktailDetailDialog(cocktailDefinition));
-    }));
-  }
+  // void _showPopupDetails(
+  //     BuildContext context, CocktailDefinition cocktailDefinition) {
+  //   Navigator.of(context).push(PageRouteBuilder(
+  //       opaque: false,
+  //       barrierDismissible: true,
+  //       barrierLabel: 'l',
+  //       barrierColor: Colors.black45,
+  //       fullscreenDialog: true,
+  //       pageBuilder: (context, a, sa) {
+  //     return Center(child: CocktailDetailDialog(cocktailDefinition));
+  //   }));
+  // }
 
   //variant 2
   // void _showPopupDetails(

@@ -34,10 +34,11 @@ class _CustomDialogSample2State extends State<CustomDialogSample2> {
       context: context,
       barrierDismissible: true,
       barrierLabel: 'Dismiss',
+      transitionDuration: Duration(milliseconds: 800),
       transitionBuilder: (context, animation, secondaryAnimation, child) {
         return SlideTransition(
-          position:
-              Tween(begin: Offset(0, -1), end: Offset(0, 0)).animate(animation),
+          position: Tween(begin: Offset(0, -1), end: Offset(0, 0))
+              .animate(animation),
           child: child,
         );
       },

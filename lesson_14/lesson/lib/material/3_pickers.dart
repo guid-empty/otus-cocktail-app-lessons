@@ -144,6 +144,7 @@ class _MaterialRootPageState extends State<MaterialRootPage> {
   void _showDateTimeRangePicker({DatePickerEntryMode entryMode}) {
     showDateRangePicker(
         context: context,
+        locale: Locale('ru'),
         initialEntryMode: entryMode,
         firstDate: DateTime.now(),
         lastDate: DateTime.now().add(Duration(days: 365)));

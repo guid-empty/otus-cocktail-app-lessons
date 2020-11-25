@@ -98,7 +98,7 @@ class _CocktailsFilterScreen2State extends State<CocktailsFilterScreen2> {
                       child: MarkWidget(
                         child: CocktailGridItem(snapshot.data.elementAt(index),
                             selectedCategory: _categoryNotifier.value),
-                        marks: Container(
+                        placeholder: Container(
                             padding: const EdgeInsets.all(16),
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(16),
@@ -123,7 +123,6 @@ class _CocktailsFilterScreen2State extends State<CocktailsFilterScreen2> {
           return SliverFillRemaining(child: const SizedBox());
         });
   }
-
 
   //variant 1
   // void _showPopupDetails(
@@ -151,7 +150,6 @@ class _CocktailsFilterScreen2State extends State<CocktailsFilterScreen2> {
   //         return Center(child: CocktailDetailDialog(cocktailDefinition));
   //       });
   // }
-
   void _showPopupDetails(
       BuildContext context, CocktailDefinition cocktailDefinition) {}
 
@@ -164,12 +162,12 @@ class _CocktailsFilterScreen2State extends State<CocktailsFilterScreen2> {
 }
 
 class MarkWidget extends StatefulWidget {
-  const MarkWidget({Key key, this.marks, @required this.child})
+  const MarkWidget({Key key, this.placeholder, @required this.child})
       : super(key: key);
 
   final Widget child;
 
-  final Widget marks;
+  final Widget placeholder;
 
   @override
   _MarkWidgetState createState() => _MarkWidgetState();
@@ -179,24 +177,25 @@ class _MarkWidgetState extends State<MarkWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onLongPress: () {
-        showCustomDialog(context);
-      },
-      child: widget.child,
-    );
+        onLongPress: () {
+          showCustomDialog(context);
+        },
+        child: widget.child);
   }
 
   void showCustomDialog(BuildContext context) {
-    Navigator.of(context).push(CustomDialogRoute2(context, widget.marks));
+    Navigator.of(context).push(CustomDialogRoute2(context, widget.placeholder,widget.child));
   }
 }
 
 class CustomDialogRoute2<T> extends PopupRoute<T> {
   final BuildContext itemContext;
 
+  final Widget child;
+
   final Widget placeholder;
 
-  CustomDialogRoute2(this.itemContext, this.placeholder) : super();
+  CustomDialogRoute2(this.itemContext, this.placeholder, this.child) : super();
   //: super(filter: ImageFilter.blur(sigmaX: 2, sigmaY: 2));
 
   @override
@@ -210,6 +209,11 @@ class CustomDialogRoute2<T> extends PopupRoute<T> {
 
   @override
   Duration get transitionDuration => Duration(milliseconds: 500);
+
+
+  bool isClosing = false;
+
+  bool isTop = false;
 
   @override
   Widget buildPage(BuildContext context, Animation<double> animation,
@@ -225,15 +229,11 @@ class CustomDialogRoute2<T> extends PopupRoute<T> {
         height: size.height,
         child: AbsorbPointer(
           absorbing: true,
-          child: itemContext.widget,
+          child: child,
         ),
       ),
     );
   }
-
-  bool isClosing = false;
-
-  bool isTop = false;
 
   @override
   Widget buildTransitions(BuildContext context, Animation<double> animation,
@@ -241,7 +241,7 @@ class CustomDialogRoute2<T> extends PopupRoute<T> {
     final RenderBox item = itemContext.findRenderObject() as RenderBox;
     final position = item.localToGlobal(Offset.zero);
     var messageTween =
-        Tween(begin: Offset(0, 1), end: Offset(0, 0)).animate(animation);
+    Tween(begin: Offset(0, 1), end: Offset(0, 0)).animate(animation);
     var messageTop = position.dy + item.size.height + 32;
     if (messageTop > MediaQuery.of(context).size.height - item.size.height) {
       isTop = true;
@@ -281,7 +281,7 @@ class CustomDialogRoute2<T> extends PopupRoute<T> {
                     isClosing = true;
                     controller
                         .animateTo(controller.lowerBound,
-                            duration: Duration(seconds: 1))
+                        duration: Duration(seconds: 3))
                         .whenComplete(() {
                       navigator.finalizeRoute(this);
                     });
@@ -295,4 +295,8 @@ class CustomDialogRoute2<T> extends PopupRoute<T> {
       ),
     );
   }
+
+
+
+
 }

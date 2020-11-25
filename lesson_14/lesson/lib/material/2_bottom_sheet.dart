@@ -33,11 +33,11 @@ class _BottomSheetSamplePageState extends State<BottomSheetSamplePage> {
     );
   }
 
-  void _showModalBottomDialog() {
-    showModalBottomSheet(
+  void _showModalBottomDialog() async {
+   showModalBottomSheet(
         context: context,
         isScrollControlled: false,
-        isDismissible: true,
+        isDismissible: false,
         enableDrag: true,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
@@ -47,9 +47,14 @@ class _BottomSheetSamplePageState extends State<BottomSheetSamplePage> {
         ),
         builder: (context) => Column(
               children: [
-                Text(
-                  'Title',
-                  style: Theme.of(context).textTheme.headline6,
+                GestureDetector(
+                  onTap: (){
+                    Navigator.of(context).pop('result');
+                  },
+                  child: Text(
+                    'Title',
+                    style: Theme.of(context).textTheme.headline6,
+                  ),
                 ),
                 Text('Content'),
                 // Expanded(
@@ -64,8 +69,8 @@ class _BottomSheetSamplePageState extends State<BottomSheetSamplePage> {
             ));
   }
 
-  void _showPersistentBottomDialog(BuildContext scaffoldContext) {
-    final controller = showBottomSheet(
+  void _showPersistentBottomDialog(BuildContext scaffoldContext) async {
+   final result =  await showBottomSheet(
       context: scaffoldContext,
       builder: (context) => Container(
         color: Colors.blue[100],
@@ -97,6 +102,7 @@ class _BottomSheetSamplePageState extends State<BottomSheetSamplePage> {
           ],
         ),
       ),
-    );
+    ).closed;
+
   }
 }

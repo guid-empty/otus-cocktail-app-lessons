@@ -29,13 +29,12 @@ class CupertinoContextMenuSample extends StatelessWidget {
           itemBuilder: (context, index) {
             return CupertinoContextMenu(
               child: Image.network(urls.elementAt(index)),
-              // previewBuilder: (context, animation, child) {
-              //
-              //   return RotationTransition(
-              //     turns: animation,
-              //     child: child,
-              //   );
-              // },
+              previewBuilder: (context, animation, child) {
+                return RotationTransition(
+                  turns: animation,
+                  child: child,
+                );
+              },
               actions: [
                 CupertinoContextMenuAction(
                   child: const Text('Action one'),
