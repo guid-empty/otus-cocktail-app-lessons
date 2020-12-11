@@ -10,6 +10,7 @@ import 'app/complex/redux/reducer.dart';
 import 'app/complex/redux/state.dart';
 import 'app/complex/ui/root_page.dart';
 import 'app/complex/ui/style/theme.dart';
+import 'app/simple/redux/middleware.dart';
 import 'app/simple/redux/reducer.dart';
 import 'app/simple/redux/state.dart';
 import 'app/simple/view.dart';
@@ -19,7 +20,33 @@ void main() {
   runApp(CoreApp());
 }
 
-class CoreApp extends StatelessWidget {
+class CoreApp extends StatefulWidget {
+  @override
+  _CoreAppState createState() => _CoreAppState();
+}
+
+class _CoreAppState extends State<CoreApp> {
+  Store<SimpleAppState> _simpleAppStore;
+  DevToolsStore<SimpleAppState> _devToolsSimpleAppStore;
+  Store<AppState> _complexAppStoreHolder;
+  Store<AppState> get _complexAppStore {
+    if (_complexAppStoreHolder != null) {
+      return _complexAppStoreHolder;
+    }
+
+    final repository = AsyncCocktailRepository();
+    final thunkMiddleware =
+        ExtraArgumentThunkMiddleware<AppState, CocktailRepository>(repository);
+
+    _complexAppStoreHolder ??= Store<AppState>(
+      appReducer,
+      initialState: AppState.initState,
+      middleware: [thunkMiddleware, LogMiddleware<AppState>()],
+    );
+
+    return _complexAppStoreHolder;
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -28,27 +55,29 @@ class CoreApp extends StatelessWidget {
       routes: {
         '/': (_) => HomeView(),
         'simple_app': (_) {
-          final store = Store<SimpleAppState>(
+          _simpleAppStore ??= Store<SimpleAppState>(
             simpleAppStateReducer,
             initialState: SimpleAppState.init,
+            middleware: [LogMiddleware<SimpleAppState>()],
           );
-          return SimpleApp(store);
+          return SimpleApp(_simpleAppStore);
         },
         'simple_app_dev': (_) {
-          final store = DevToolsStore<SimpleAppState>(
+          _devToolsSimpleAppStore ??= DevToolsStore<SimpleAppState>(
             simpleAppStateReducer,
             initialState: SimpleAppState.init,
           );
+
           return ReduxDevToolsContainer(
-            store: store,
+            store: _devToolsSimpleAppStore,
             child: SimpleApp(
-              store,
+              _devToolsSimpleAppStore,
               devDrawerBuilder: (context) => Theme(
                 data: ThemeData.light(),
                 child: Drawer(
                   child: Padding(
                     padding: EdgeInsets.only(top: 24.0),
-                    child: ReduxDevTools(store),
+                    child: ReduxDevTools(_devToolsSimpleAppStore),
                   ),
                 ),
               ),
@@ -56,18 +85,7 @@ class CoreApp extends StatelessWidget {
           );
         },
         'complex_app': (_) {
-          final repository = AsyncCocktailRepository();
-          final thunkMiddleware =
-              ExtraArgumentThunkMiddleware<AppState, CocktailRepository>(
-                  repository);
-
-          final store = Store<AppState>(
-            appReducer,
-            initialState: AppState.initState,
-            middleware: [thunkMiddleware],
-          );
-
-          return RootPage(store);
+          return RootPage(_complexAppStore);
         }
       },
     );
