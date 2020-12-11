@@ -53,13 +53,19 @@ class _Content extends StatelessWidget {
             children: [
               Text(
                 vm.count,
-                style: Theme.of(context).textTheme.headline4,
+                style: Theme.of(context)
+                    .textTheme
+                    .headline4
+                    .copyWith(color: Colors.white),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 16),
                 child: Text(
                   vm.remainder,
-                  style: Theme.of(context).textTheme.headline4,
+                  style: Theme.of(context)
+                      .textTheme
+                      .headline4
+                      .copyWith(color: Colors.white),
                 ),
               ),
             ],
