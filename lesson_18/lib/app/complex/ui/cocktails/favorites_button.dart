@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:lesson_18/app/complex/core/models.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+import 'package:lesson_18/app/complex/redux/favorites/action.dart';
+import 'package:lesson_18/app/complex/redux/favorites/state.dart';
+
+import '../../core/models.dart';
+import '../../redux/state.dart';
 
 class FavoritesButton extends StatelessWidget {
   const FavoritesButton(
@@ -11,30 +16,23 @@ class FavoritesButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
-    // return Selector<FavoritesViewModel, bool>(
-    //   selector: (context, model) {
-    //     return model.isSelected(cocktailDefinition.id);
-    //   },
-    //   builder: (context, selected, _) {
-    //     print('FavoritesButton build:${cocktailDefinition.id}');
-    //     if (selected) {
-    //       return IconButton(
-    //           onPressed: () {
-    //             context
-    //                 .read<FavoritesViewModel>()
-    //                 .removeFromFavorites(cocktailDefinition.id);
-    //           },
-    //           icon: Icon(Icons.favorite, color: Colors.red));
-    //     }
-    //     return IconButton(
-    //         onPressed: () {
-    //           context
-    //               .read<FavoritesViewModel>()
-    //               .addToFavorites(cocktailDefinition);
-    //         },
-    //         icon: Icon(Icons.favorite_border));
-    //   },
-    // );
+    final store = StoreProvider.of<AppState>(context);
+
+    return StoreConnector<AppState, FavoritesState>(
+      converter: (store) => store.state.favoritesState,
+      builder: (context, state) {
+        return state.isFavorites(cocktailDefinition.id)
+            ? IconButton(
+                onPressed: () => store
+                    .dispatch(SetFavoritesAction(cocktailDefinition, false)),
+                icon: Icon(Icons.favorite, color: Colors.red),
+              )
+            : IconButton(
+                onPressed: () => store
+                    .dispatch(SetFavoritesAction(cocktailDefinition, true)),
+                icon: Icon(Icons.favorite_border),
+              );
+      },
+    );
   }
 }

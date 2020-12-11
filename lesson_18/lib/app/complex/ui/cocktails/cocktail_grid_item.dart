@@ -4,7 +4,10 @@ import 'package:lesson_18/app/complex/core/models.dart';
 import 'favorites_button.dart';
 
 class CocktailGridItem extends StatelessWidget {
-  const CocktailGridItem(this.cocktailDefinition, {Key key}) : super(key: key);
+  const CocktailGridItem(
+    this.cocktailDefinition, {
+    Key key,
+  }) : super(key: key);
 
   static const double aspectRatio = 170 / 215;
 

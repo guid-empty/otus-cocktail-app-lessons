@@ -61,6 +61,9 @@ class CocktailsFilterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Коктейли'),
+      ),
       body: SafeArea(
         child: CustomScrollView(
           slivers: [
