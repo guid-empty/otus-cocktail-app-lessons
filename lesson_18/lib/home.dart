@@ -23,6 +23,16 @@ class HomeView extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: FlatButton(
+                child: Text('Open Dev Simple App'),
+                color: Colors.lightGreen,
+                textColor: Colors.white,
+                onPressed: () =>
+                    Navigator.of(context).pushNamed('simple_app_dev'),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: FlatButton(
                 child: Text('Open Complex App'),
                 color: Colors.blue,
                 textColor: Colors.white,

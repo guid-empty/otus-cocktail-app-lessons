@@ -8,9 +8,11 @@ import 'view_model.dart';
 
 class SimpleApp extends StatelessWidget {
   final Store<SimpleAppState> _store;
+  final WidgetBuilder devDrawerBuilder;
 
   const SimpleApp(
     this._store, {
+    this.devDrawerBuilder,
     Key key,
   }) : super(key: key);
 
@@ -30,6 +32,7 @@ class SimpleApp extends StatelessWidget {
           ),
           child: _Content(),
         ),
+        endDrawer: devDrawerBuilder != null ? devDrawerBuilder(context) : null,
       ),
     );
   }
@@ -64,7 +67,7 @@ class _Content extends StatelessWidget {
                   vm.remainder,
                   style: Theme.of(context)
                       .textTheme
-                      .headline4
+                      .headline6
                       .copyWith(color: Colors.white),
                 ),
               ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_redux_dev_tools/flutter_redux_dev_tools.dart';
 import 'package:redux/redux.dart';
+import 'package:redux_dev_tools/redux_dev_tools.dart';
 import 'package:redux_thunk/redux_thunk.dart';
 
 import 'app/complex/core/models.dart';
@@ -31,6 +33,27 @@ class CoreApp extends StatelessWidget {
             initialState: SimpleAppState.init,
           );
           return SimpleApp(store);
+        },
+        'simple_app_dev': (_) {
+          final store = DevToolsStore<SimpleAppState>(
+            simpleAppStateReducer,
+            initialState: SimpleAppState.init,
+          );
+          return ReduxDevToolsContainer(
+            store: store,
+            child: SimpleApp(
+              store,
+              devDrawerBuilder: (context) => Theme(
+                data: ThemeData.light(),
+                child: Drawer(
+                  child: Padding(
+                    padding: EdgeInsets.only(top: 24.0),
+                    child: ReduxDevTools(store),
+                  ),
+                ),
+              ),
+            ),
+          );
         },
         'complex_app': (_) {
           final repository = AsyncCocktailRepository();
