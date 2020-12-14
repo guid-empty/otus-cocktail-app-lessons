@@ -47,7 +47,7 @@ class _Content extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         StoreBuilder<SimpleAppState>(
-          builder: (context, state) => Column(
+          builder: (context, store) => Column(
             children: [
               Text(
                 'Current count is ${store.state.count}',
