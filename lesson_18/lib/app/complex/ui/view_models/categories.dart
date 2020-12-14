@@ -6,6 +6,7 @@ part 'categories.freezed.dart';
 
 @freezed
 abstract class CategoriesViewModel with _$CategoriesViewModel {
+  // TODO убрать, тут никогда не будет загрузки
   const factory CategoriesViewModel.loading() = Loading;
 
   const factory CategoriesViewModel.success({

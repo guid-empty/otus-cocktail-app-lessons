@@ -4,7 +4,6 @@ import 'package:redux/redux.dart';
 
 import 'redux/action.dart';
 import 'redux/state.dart';
-import 'view_model.dart';
 
 class SimpleApp extends StatelessWidget {
   final Store<SimpleAppState> _store;
@@ -47,15 +46,11 @@ class _Content extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        StoreConnector<SimpleAppState, ContentViewModel>(
-          converter: (store) => ContentViewModel(
-            count: 'Current count is ${store.state.count}',
-            remainder: '${store.state.count} % 3 is ${store.state.remainder}',
-          ),
-          builder: (context, vm) => Column(
+        StoreBuilder<SimpleAppState>(
+          builder: (context, state) => Column(
             children: [
               Text(
-                vm.count,
+                'Current count is ${store.state.count}',
                 style: Theme.of(context)
                     .textTheme
                     .headline4
@@ -64,7 +59,7 @@ class _Content extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(top: 16),
                 child: Text(
-                  vm.remainder,
+                  '${store.state.count} % 3 is ${store.state.remainder}',
                   style: Theme.of(context)
                       .textTheme
                       .headline6

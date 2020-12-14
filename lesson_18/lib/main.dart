@@ -58,7 +58,6 @@ class _CoreAppState extends State<CoreApp> {
           _simpleAppStore ??= Store<SimpleAppState>(
             simpleAppStateReducer,
             initialState: SimpleAppState.init,
-            middleware: [LogMiddleware<SimpleAppState>()],
           );
           return SimpleApp(_simpleAppStore);
         },
@@ -84,9 +83,7 @@ class _CoreAppState extends State<CoreApp> {
             ),
           );
         },
-        'complex_app': (_) {
-          return RootPage(_complexAppStore);
-        }
+        'complex_app': (_) => RootPage(_complexAppStore),
       },
     );
   }
