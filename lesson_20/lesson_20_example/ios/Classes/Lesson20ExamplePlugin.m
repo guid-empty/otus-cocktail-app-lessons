@@ -8,8 +8,29 @@
 #import "lesson_20_example-Swift.h"
 #endif
 
+#import "pigeon.h"
+
+@interface MyMultiplyApi : NSObject <MultiplyApi>
+@end
+
+@implementation MyMultiplyApi
+-(MultiplyResult*)multiply:(MultiplyRequest*)request error:(FlutterError **)error {
+  MultiplyResult *result = [[MultiplyResult alloc] init];
+  int multiplicand = [request.multiplicand intValue];
+  int multiplier = [request.multiplier intValue];
+  int multiplicationResult = multiplicand * multiplier;
+  result.result = [NSNumber numberWithInt:multiplicationResult];
+
+  return result;
+}
+@end
+
+
 @implementation Lesson20ExamplePlugin
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
   [SwiftLesson20ExamplePlugin registerWithRegistrar:registrar];
+  MyMultiplyApi *api = [[MyMultiplyApi alloc] init];
+  
+  MultiplyApiSetup(registrar.messenger, api);
 }
 @end

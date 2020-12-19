@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 
+export 'pigeon/multiply.pigeon.dart';
+
 class Lesson20Example {
   static const MethodChannel _channel =
       const MethodChannel('lesson_20_example');
