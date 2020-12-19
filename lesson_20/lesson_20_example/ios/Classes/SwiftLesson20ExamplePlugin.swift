@@ -3,14 +3,17 @@ import UIKit
 
 public class SwiftLesson20ExamplePlugin: NSObject, FlutterPlugin {
   var channel: FlutterMethodChannel?
-
+  var eventSink: FlutterEventSink?
+  
   public static func register(with registrar: FlutterPluginRegistrar) {
     let channel = FlutterMethodChannel(name: "lesson_20_example", binaryMessenger: registrar.messenger())
     
-
+    let eventChannel = FlutterEventChannel(name: "lesson_20_example_event_channel", binaryMessenger: registrar.messenger())
+    
     let instance = SwiftLesson20ExamplePlugin()
     instance.channel = channel
-
+    eventChannel.setStreamHandler(instance)
+    
     registrar.addMethodCallDelegate(instance, channel: channel)
     registrar.addApplicationDelegate(instance)
   }
@@ -37,7 +40,18 @@ extension SwiftLesson20ExamplePlugin: UIApplicationDelegate {
   }
   
   public func applicationWillEnterForeground(_ application: UIApplication) {
-
+    eventSink?("enterForeground")
   }
 }
 
+extension SwiftLesson20ExamplePlugin: FlutterStreamHandler {
+  public func onListen(withArguments arguments: Any?, eventSink events: @escaping FlutterEventSink) -> FlutterError? {
+    self.eventSink = events
+    return nil
+  }
+  
+  public func onCancel(withArguments arguments: Any?) -> FlutterError? {
+    self.eventSink = nil
+    return nil
+  }
+}
