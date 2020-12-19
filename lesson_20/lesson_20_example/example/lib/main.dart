@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:lesson_20_example/lesson_20_example.dart';
@@ -121,6 +122,16 @@ class _MyAppState extends State<MyApp> {
                   padding: EdgeInsets.only(top: 16),
                   child: FfiWidgetUsageExample(),
                 ),
+                Padding(
+                  padding: EdgeInsets.only(top: 16),
+                  child: SizedBox(
+                    width: 250,
+                    height: 250,
+                    child: Platform.isIOS
+                        ? UiKitView(viewType: 'ExampleView')
+                        : AndroidView(viewType: 'ExampleView'),
+                  ),
+                )
               ],
             ),
           ),

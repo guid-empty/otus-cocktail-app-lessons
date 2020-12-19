@@ -16,6 +16,9 @@ public class SwiftLesson20ExamplePlugin: NSObject, FlutterPlugin {
     
     registrar.addMethodCallDelegate(instance, channel: channel)
     registrar.addApplicationDelegate(instance)
+    
+    let viewFactory = ExampleViewFactory()
+    registrar.register(viewFactory, withId: "ExampleView")
   }
 
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
