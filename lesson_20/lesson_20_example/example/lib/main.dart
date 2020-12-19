@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:lesson_20_example/lesson_20_example.dart';
 
+import 'ffi_example.dart';
 import 'pigeon_example.dart';
 
 void main() {
@@ -115,7 +116,11 @@ class _MyAppState extends State<MyApp> {
                 Padding(
                   padding: EdgeInsets.only(top: 16),
                   child: PigeonUsageWidgetExample(),
-                )
+                ),
+                Padding(
+                  padding: EdgeInsets.only(top: 16),
+                  child: FfiWidgetUsageExample(),
+                ),
               ],
             ),
           ),
