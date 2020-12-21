@@ -24,6 +24,7 @@ class _FilterResultsPageWidgetState extends State<FilterResultsPageWidget> {
   @override
   Widget build(BuildContext context) {
     return ApplicationScaffold(
+      title: 'Мой бар',
       currentSelectedNavBarItem: 1,
       child: ValueListenableBuilder(
         valueListenable: _categoryNotifier,

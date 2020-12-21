@@ -6,12 +6,13 @@ import 'package:flutter/material.dart';
 class ApplicationScaffold extends StatelessWidget {
   final Widget child;
   final int currentSelectedNavBarItem;
+  final String title;
 
-  ApplicationScaffold({@required this.child, @required this.currentSelectedNavBarItem});
+  ApplicationScaffold({@required this.child, @required this.currentSelectedNavBarItem, @required this.title});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AdaptiveAppBar(),
+      appBar: AdaptiveAppBar(title: title),
       drawer: ApplicationDrawer(),
       body: child,
       bottomNavigationBar: ApplicationNavigationBar(

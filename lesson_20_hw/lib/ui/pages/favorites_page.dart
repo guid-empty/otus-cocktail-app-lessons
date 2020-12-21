@@ -13,10 +13,15 @@ class _FavoritesPageWidgetState extends State<FavoritesPageWidget> {
   @override
   Widget build(BuildContext context) {
     return ApplicationScaffold(
+      title: 'Избранное',
       currentSelectedNavBarItem: 2,
       child: _buildFavoriteCocktailItems(context),
     );
   }
 
-  Widget _buildFavoriteCocktailItems(BuildContext context) => Center(child: Text('todo: add code here'));
+  Widget _buildFavoriteCocktailItems(BuildContext context) => Center(
+          child: Text(
+        'todo: add code here',
+        style: Theme.of(context).textTheme.caption,
+      ));
 }

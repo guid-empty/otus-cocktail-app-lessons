@@ -1,5 +1,6 @@
 import 'package:cocktail_app/ui/pages/favorites_page.dart';
 import 'package:cocktail_app/ui/style/custom_colors.dart';
+import 'package:cocktail_app/ui/style/svg_icons.dart';
 import 'package:flutter/material.dart';
 
 class ApplicationDrawer extends StatelessWidget {
@@ -32,22 +33,23 @@ class ApplicationDrawer extends StatelessWidget {
               ),
             ),
             ListTile(
-              title: Text('About'),
+              title: Text('О нас'),
+              leading: SvgIcons.aboutUs(CustomColors.headline1),
             ),
             divider,
             ListTile(
-              title: Text('Review'),
-              leading: Icon(Icons.rate_review_outlined, color: CustomColors.headline1),
+              title: Text('Отзывы'),
+              leading: SvgIcons.thumbsUp(CustomColors.headline1),
             ),
             divider,
             ListTile(
-              title: Text('Language'),
-              leading: Icon(Icons.language, color: CustomColors.headline1),
+              title: Text('Язык'),
+              leading: SvgIcons.language(CustomColors.headline1),
             ),
             divider,
             ListTile(
-              title: Text('Favorites'),
-              leading: Icon(Icons.favorite_border, color: CustomColors.headline1),
+              title: Text('Избранное'),
+              leading: SvgIcons.favorite(CustomColors.headline1),
               onTap: () {
                 Navigator.of(context).push(
                   MaterialPageRoute<void>(

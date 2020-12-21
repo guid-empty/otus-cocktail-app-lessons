@@ -13,7 +13,7 @@ final mainThemeData = ThemeData(
 final mainTextTheme = TextTheme(
   subtitle1: TextStyle(color: CustomColors.headline1, fontSize: 14, fontWeight: FontWeight.normal),
   subtitle2: TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.normal),
-  caption: TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.normal),
+  caption: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.normal),
   bodyText1: TextStyle(color: Colors.white, fontWeight: FontWeight.normal, fontSize: 15),
   bodyText2: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
   headline1: TextStyle(color: CustomColors.headline1, fontSize: 14, fontWeight: FontWeight.normal),

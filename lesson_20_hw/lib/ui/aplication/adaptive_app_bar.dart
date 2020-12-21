@@ -4,6 +4,10 @@ import 'package:flutter/material.dart';
 const applicationBarHeight = 40.0;
 
 class AdaptiveAppBar extends StatelessWidget implements PreferredSizeWidget {
+  final String title;
+
+  const AdaptiveAppBar({Key key, @required this.title}) : super(key: key);
+
   @override
   Size get preferredSize => const Size.fromHeight(applicationBarHeight);
 
@@ -11,7 +15,7 @@ class AdaptiveAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) => AppBar(
         backgroundColor: CustomColors.background,
         automaticallyImplyLeading: true,
-        title: Text('Cocktail of the day'),
+        title: Text(title),
         actions: [
           IconButton(
             icon: const Icon(Icons.search),

@@ -18,6 +18,7 @@ class _RandomCocktailPageWidgetState extends State<RandomCocktailPageWidget> {
   @override
   Widget build(BuildContext context) {
     return ApplicationScaffold(
+      title: 'Коктейль дня',
       currentSelectedNavBarItem: 0,
       child: CustomScrollView(
         slivers: [
