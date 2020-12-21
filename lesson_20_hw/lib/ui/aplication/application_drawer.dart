@@ -1,9 +1,9 @@
-import 'package:cocktail_app/ui/cocktails/favorites_page.dart';
-import 'package:cocktail_app/ui/style/colors.dart';
+import 'package:cocktail_app/ui/pages/favorites_page.dart';
+import 'package:cocktail_app/ui/style/custom_colors.dart';
 import 'package:flutter/material.dart';
 
-class AppDrawer extends StatelessWidget {
-  const AppDrawer({
+class ApplicationDrawer extends StatelessWidget {
+  const ApplicationDrawer({
     Key key,
   }) : super(key: key);
 

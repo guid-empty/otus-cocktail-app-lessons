@@ -1,8 +1,8 @@
 import 'package:cocktail_app/core/models.dart';
-import 'package:cocktail_app/ui/cocktails/application_scaffold.dart';
-import 'package:cocktail_app/ui/cocktails/categories_fitler_bar_delegate.dart';
-import 'package:cocktail_app/ui/cocktails/cocktail_grid_item.dart';
-import 'package:cocktail_app/ui/cocktails/filter_results_page.dart';
+import 'package:cocktail_app/ui/aplication/application_scaffold.dart';
+import 'package:cocktail_app/ui/pages/categories_fitler_bar_delegate.dart';
+import 'package:cocktail_app/ui/pages/cocktail_grid_item.dart';
+import 'package:cocktail_app/ui/pages/filter_results_page.dart';
 import 'package:flutter/material.dart';
 
 class RandomCocktailPageWidget extends StatefulWidget {
@@ -17,7 +17,7 @@ class RandomCocktailPageWidget extends StatefulWidget {
 class _RandomCocktailPageWidgetState extends State<RandomCocktailPageWidget> {
   @override
   Widget build(BuildContext context) {
-    return ApplicationScaffoldWidget(
+    return ApplicationScaffold(
         child: CustomScrollView(
       slivers: [
         SliverToBoxAdapter(child: SizedBox(height: 21)),

@@ -1,6 +1,6 @@
 import 'package:cocktail_app/core/models.dart';
 import 'package:cocktail_app/main.dart';
-import 'package:cocktail_app/ui/details/cocktail_detail_page.dart';
+import 'package:cocktail_app/ui/pages/details/cocktail_detail_page.dart';
 import 'package:flutter/material.dart';
 
 class CocktailDetailsLoaderPageWidget extends StatefulWidget {
@@ -22,6 +22,7 @@ class _CocktailDetailsLoaderPageWidgetState extends State<CocktailDetailsLoaderP
         if (snapshot.hasData) {
           return CocktailDetailPage(snapshot.data);
         }
+
         return Center(child: CircularProgressIndicator());
       });
 }

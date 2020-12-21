@@ -1,6 +1,9 @@
-import 'package:cocktail_app/ui/cocktails/application_scaffold.dart';
+import 'package:cocktail_app/ui/aplication/application_scaffold.dart';
 import 'package:flutter/material.dart';
 
+///
+/// TODO:
+///
 class FavoritesPageWidget extends StatefulWidget {
   @override
   _FavoritesPageWidgetState createState() => _FavoritesPageWidgetState();
@@ -9,7 +12,7 @@ class FavoritesPageWidget extends StatefulWidget {
 class _FavoritesPageWidgetState extends State<FavoritesPageWidget> {
   @override
   Widget build(BuildContext context) {
-    return ApplicationScaffoldWidget(
+    return ApplicationScaffold(
       child: _buildFavoriteCocktailItems(context),
     );
   }

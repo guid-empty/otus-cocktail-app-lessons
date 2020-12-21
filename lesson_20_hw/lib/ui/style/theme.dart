@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'colors.dart';
+import 'custom_colors.dart';
 
 final mainThemeData = ThemeData(
   canvasColor: CustomColors.background,

@@ -1,5 +1,5 @@
 import 'package:cocktail_app/core/models.dart';
-import 'package:cocktail_app/ui/cocktails/random_cocktail_page.dart';
+import 'package:cocktail_app/ui/pages/random_cocktail_page.dart';
 import 'package:cocktail_app/ui/style/theme.dart';
 import 'package:flutter/material.dart';
 

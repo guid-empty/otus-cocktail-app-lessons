@@ -1,6 +1,6 @@
 import 'package:cocktail_app/core/models.dart';
-import 'package:cocktail_app/ui/cocktails/cocktail_details_loader_page.dart';
-import 'package:cocktail_app/ui/style/colors.dart';
+import 'package:cocktail_app/ui/pages/cocktail_details_loader_page.dart';
+import 'package:cocktail_app/ui/style/custom_colors.dart';
 import 'package:flutter/material.dart';
 
 class CocktailGridItem extends StatelessWidget {

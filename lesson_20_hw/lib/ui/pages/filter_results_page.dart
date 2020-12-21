@@ -1,8 +1,8 @@
 import 'package:cocktail_app/core/models.dart';
 import 'package:cocktail_app/main.dart';
-import 'package:cocktail_app/ui/cocktails/application_scaffold.dart';
-import 'package:cocktail_app/ui/cocktails/categories_fitler_bar_delegate.dart';
-import 'package:cocktail_app/ui/cocktails/cocktail_grid_item.dart';
+import 'package:cocktail_app/ui/aplication/application_scaffold.dart';
+import 'package:cocktail_app/ui/pages/categories_fitler_bar_delegate.dart';
+import 'package:cocktail_app/ui/pages/cocktail_grid_item.dart';
 import 'package:flutter/material.dart';
 
 class FilterResultsPageWidget extends StatefulWidget {
@@ -23,7 +23,7 @@ class _FilterResultsPageWidgetState extends State<FilterResultsPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return ApplicationScaffoldWidget(
+    return ApplicationScaffold(
       child: ValueListenableBuilder(
         valueListenable: _categoryNotifier,
         builder: (ctx, value, child) {

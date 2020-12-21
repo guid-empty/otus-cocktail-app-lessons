@@ -1,5 +1,5 @@
 import 'package:cocktail_app/core/models.dart';
-import 'package:cocktail_app/ui/style/colors.dart';
+import 'package:cocktail_app/ui/style/custom_colors.dart';
 import 'package:flutter/material.dart';
 
 class CategoriesFilterBarDelegate extends SliverPersistentHeaderDelegate {

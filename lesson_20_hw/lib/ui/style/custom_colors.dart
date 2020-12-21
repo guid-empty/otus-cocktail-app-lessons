@@ -16,5 +16,7 @@ class CustomColors {
   static const value_text = Color(0xff15151c);
   static const instruction = Color(0xff201F2C);
   static const rating_container = Color(0xff2a293a);
-  static const divider = Color(0xe4e4e4);
+  static const divider = Color(0xffe4e4e4);
+  static const active_tab = Color(0xffffffff);
+  static const inactive_tab = Color(0xFF848396);
 }
