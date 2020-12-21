@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 ///
 /// TODO:
 ///
-class FavoritesPageWidget extends StatefulWidget {
+class FavouriteCocktailsPage extends StatefulWidget {
   @override
-  _FavoritesPageWidgetState createState() => _FavoritesPageWidgetState();
+  _FavouriteCocktailsPageState createState() => _FavouriteCocktailsPageState();
 }
 
-class _FavoritesPageWidgetState extends State<FavoritesPageWidget> {
+class _FavouriteCocktailsPageState extends State<FavouriteCocktailsPage> {
   @override
   Widget build(BuildContext context) {
     return ApplicationScaffold(
