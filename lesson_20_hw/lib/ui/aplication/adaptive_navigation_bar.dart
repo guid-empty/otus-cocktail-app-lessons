@@ -1,4 +1,5 @@
 import 'package:cocktail_app/ui/style/custom_colors.dart';
+import 'package:cocktail_app/ui/style/svg_icons.dart';
 import 'package:flutter/material.dart';
 
 const appNavigationHeight = 73.0;
@@ -17,10 +18,10 @@ class _ApplicationNavigationBarState extends State<ApplicationNavigationBar> wit
         child: TabBar(
           controller: _tabController,
           tabs: [
-            Tab(icon: Icon(Icons.favorite_border, color: CustomColors.active_tab, size: 26), text: 'Коктейли'),
-            Tab(icon: Icon(Icons.favorite_border, color: CustomColors.inactive_tab, size: 26), text: 'Мой бар'),
-            Tab(icon: Icon(Icons.favorite_border, color: CustomColors.inactive_tab, size: 26), text: 'Избранное'),
-            Tab(icon: Icon(Icons.favorite_border, color: CustomColors.inactive_tab, size: 26), text: 'Профиль'),
+            Tab(icon: SvgIcons.cocktails(CustomColors.active_tab), text: 'Коктейли'),
+            Tab(icon: SvgIcons.myBar(CustomColors.inactive_tab), text: 'Мой бар'),
+            Tab(icon: SvgIcons.favorite(CustomColors.inactive_tab), text: 'Избранное'),
+            Tab(icon: SvgIcons.profile(CustomColors.inactive_tab), text: 'Профиль'),
           ],
         ),
       );
