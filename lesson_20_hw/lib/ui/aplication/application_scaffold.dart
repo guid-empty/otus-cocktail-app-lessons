@@ -5,15 +5,18 @@ import 'package:flutter/material.dart';
 
 class ApplicationScaffold extends StatelessWidget {
   final Widget child;
+  final int currentSelectedNavBarItem;
 
-  ApplicationScaffold({@required this.child});
+  ApplicationScaffold({@required this.child, @required this.currentSelectedNavBarItem});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AdaptiveAppBar(),
       drawer: ApplicationDrawer(),
       body: child,
-      bottomNavigationBar: ApplicationNavigationBar(),
+      bottomNavigationBar: ApplicationNavigationBar(
+        currentSelectedItem: currentSelectedNavBarItem,
+      ),
     );
   }
 }

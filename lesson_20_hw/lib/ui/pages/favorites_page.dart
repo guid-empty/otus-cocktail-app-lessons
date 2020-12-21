@@ -13,6 +13,7 @@ class _FavoritesPageWidgetState extends State<FavoritesPageWidget> {
   @override
   Widget build(BuildContext context) {
     return ApplicationScaffold(
+      currentSelectedNavBarItem: 2,
       child: _buildFavoriteCocktailItems(context),
     );
   }

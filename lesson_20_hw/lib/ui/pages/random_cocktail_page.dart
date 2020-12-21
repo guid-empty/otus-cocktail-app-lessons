@@ -18,26 +18,28 @@ class _RandomCocktailPageWidgetState extends State<RandomCocktailPageWidget> {
   @override
   Widget build(BuildContext context) {
     return ApplicationScaffold(
-        child: CustomScrollView(
-      slivers: [
-        SliverToBoxAdapter(child: SizedBox(height: 21)),
-        SliverPersistentHeader(
-          delegate: CategoriesFilterBarDelegate(
-            CocktailCategory.values,
-            onCategorySelected: (category) {
-              Navigator.of(context).push(
-                MaterialPageRoute<void>(
-                  builder: (context) => FilterResultsPageWidget(selectedCategory: category),
-                ),
-              );
-            },
+      currentSelectedNavBarItem: 0,
+      child: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(child: SizedBox(height: 21)),
+          SliverPersistentHeader(
+            delegate: CategoriesFilterBarDelegate(
+              CocktailCategory.values,
+              onCategorySelected: (category) {
+                Navigator.of(context).push(
+                  MaterialPageRoute<void>(
+                    builder: (context) => FilterResultsPageWidget(selectedCategory: category),
+                  ),
+                );
+              },
+            ),
+            floating: true,
           ),
-          floating: true,
-        ),
-        SliverToBoxAdapter(child: SizedBox(height: 24)),
-        _buildRandomCocktailPage(context)
-      ],
-    ));
+          SliverToBoxAdapter(child: SizedBox(height: 24)),
+          _buildRandomCocktailPage(context)
+        ],
+      ),
+    );
   }
 
   Widget _buildRandomCocktailPage(BuildContext context) {
