@@ -8,8 +8,6 @@ void main() {
 
   setUp(() => print('setUp callback'));
 
-  setUpAll(() => print('setUpA;; callback'));
-
   test('Favorites storage should be empty in initial state', () {
     expect(favoritesStorage.isEmpty, true);
 
@@ -26,6 +24,4 @@ void main() {
   });
 
   tearDown(() => print('tearDown callback'));
-
-  tearDownAll(() => print('tearDownAll callback'));
 }

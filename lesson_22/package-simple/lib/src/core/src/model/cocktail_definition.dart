@@ -22,7 +22,7 @@ class CocktailDefinition {
   final String drinkThumbUrl;
   final bool isFavourite;
 
-  CocktailDefinition({
+  const CocktailDefinition({
     @required this.id,
     @required this.name,
     @required this.drinkThumbUrl,
