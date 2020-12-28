@@ -1,8 +1,8 @@
-import 'package:cocktaildbhttpusing/src/model/cocktail.dart';
-import 'package:cocktaildbhttpusing/src/model/cocktail_category.dart';
-import 'package:cocktaildbhttpusing/src/model/cocktail_type.dart';
-import 'package:cocktaildbhttpusing/src/model/glass_type.dart';
-import 'package:cocktaildbhttpusing/src/model/ingredient_definition.dart';
+import 'package:cocktail_app/core/src/model/cocktail.dart';
+import 'package:cocktail_app/core/src/model/cocktail_category.dart';
+import 'package:cocktail_app/core/src/model/cocktail_type.dart';
+import 'package:cocktail_app/core/src/model/glass_type.dart';
+import 'package:cocktail_app/core/src/model/ingredient_definition.dart';
 
 class SyncCocktailRepository {
   Iterable<Cocktail> fetchAllCocktails() {

@@ -15,6 +15,7 @@ class CocktailOfDayApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      showSemanticsDebugger: false,
       darkTheme: mainThemeData,
       themeMode: ThemeMode.dark,
       initialRoute: CocktailOfDayApp.defaultRoute,
