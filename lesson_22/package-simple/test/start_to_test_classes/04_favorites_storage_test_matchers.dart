@@ -15,7 +15,7 @@ void main() {
 
       favoritesStorage.add(cocktailDefinition);
 
-      expect(favoritesStorage.getAll().first, cocktailDefinition);
+      expect(favoritesStorage.getAll(), contains(cocktailDefinition));
     });
   });
 }
