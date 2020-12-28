@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:cocktail_app/src/core/models.dart';
 
 class FavoritesStorage {
