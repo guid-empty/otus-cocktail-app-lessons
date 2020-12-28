@@ -16,8 +16,15 @@ dependencies:
   flutter_svg: ^0.18.1
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
+
+  test: ^1.15.7
+
+  #region todo: uncomment this to work with widget tests
+  #
+  #  flutter_test:
+  #    sdk: flutter
+  #endregion
+
   pedantic: ^1.9.0
   build_runner: ^1.10.1
   json_serializable: ^3.4.1
