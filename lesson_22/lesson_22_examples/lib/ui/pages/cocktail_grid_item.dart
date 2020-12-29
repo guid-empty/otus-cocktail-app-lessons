@@ -39,6 +39,7 @@ class CocktailGridItem extends StatelessWidget {
               child: Image.network(
                 cocktailDefinition.drinkThumbUrl ?? '',
                 fit: BoxFit.cover,
+                key: ValueKey('DrinkImage'),
               ),
             ),
             Padding(
