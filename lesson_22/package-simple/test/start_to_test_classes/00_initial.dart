@@ -8,6 +8,10 @@ void main() {
 
   test('some description', () {
     print('we are here!');
+    final actual = true;
+
+    expect(actual, true);
+    expect(actual, isTrue);
   });
 
   tearDown(() => print('tearDown callback'));

@@ -12,7 +12,6 @@ void main() {
   // todo: add setup here to avoid inconsistent state of storage
   // FavoritesStorage favoritesStorage;
   // setUp(() {
-  //   print('1');
   //   favoritesStorage = FavoritesStorage();
   // });
 
