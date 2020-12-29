@@ -2,6 +2,7 @@
 import 'package:test/test.dart';
 
 void main() {
+  setUpAll(() => print('setUpAll callback'));
 
   setUp(() => print('setUp callback'));
 
@@ -10,4 +11,6 @@ void main() {
   });
 
   tearDown(() => print('tearDown callback'));
+
+  tearDownAll(() => print('tearDownAll callback'));
 }
