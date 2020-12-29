@@ -17,13 +17,16 @@ class CocktailPreview extends StatelessWidget {
         ),
         Positioned(
           bottom: 0,
-          child: Container(
-            color: Colors.transparent,
-            foregroundDecoration: BoxDecoration(
-                gradient: const LinearGradient(
-                    colors: [CustomColors.gradient_first, CustomColors.gradient_second],
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter)),
+          child: AspectRatio(
+            aspectRatio: 375 / 172,
+            child: Container(
+              color: Colors.transparent,
+              foregroundDecoration: BoxDecoration(
+                  gradient: const LinearGradient(
+                      colors: [CustomColors.gradient_first, CustomColors.gradient_second],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter)),
+            ),
           ),
         ),
         SafeArea(
@@ -31,7 +34,7 @@ class CocktailPreview extends StatelessWidget {
             padding: const EdgeInsets.all(16.0),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,`
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 IconButton(
                   icon: Icon(
